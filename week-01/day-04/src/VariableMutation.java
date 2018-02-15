@@ -1,83 +1,99 @@
 public class VariableMutation {
     public static void main(String [] args) {
-
+// 1.
+        System.out.println("#1:");
         int a = 3;
         a += 10;
         System.out.println(a);
 
+// 2.
+        System.out.println("#2:");
         int b = 100;
         b -= 7;
         System.out.println(b);
 
+// 3.
+        System.out.println("#3:");
         int c = 44;
         c = c * c;
         System.out.println(c);
 
+
+// 4.
+        System.out.println("#4:");
         int d = 125;
         d /=5;
         System.out.println(d);
 
+// 5.
+        System.out.println("#5:");
         int e = 8;
         e = e * e * e;
         System.out.println(e);
 
+// 6.
+        System.out.println("#6:");
         int f1 = 123;
         int f2 = 345;
-        boolean f1isBigger;
+
+// 7.
+        System.out.println("#7:");
         if (f1 > f2){
-            f1isBigger = true;
-            System.out.println(f1isBigger);
+            System.out.println(f1>f2);
         } else {
-            f1isBigger = false;
-            System.out.println(f1isBigger);
+            System.out.println(f1>f2);
         }
 
+// 8.
+        System.out.println("#8:");
         int g1 = 350;
         int g2 = 200;
-        boolean g2isBigger;
         if(g2*g2 > g1){
-            g2isBigger = true;
-            System.out.println(g2isBigger);
+            System.out.println(g2*g2 > g1);
         } else {
-            g2isBigger = false;
-            System.out.println(g2isBigger);
+            System.out.println(g2*g2 > g1);
         }
 
+// 9.
+        System.out.println("#9:");
         int h = 135798745;
-        boolean hDivBool = false;
         int hDivisor = h % 11;
-        if (hDivisor == 0 ){
-            hDivBool = true;
-            System.out.println(hDivBool);
+        if (hDivisor == 0){
+            System.out.println(hDivisor == 0);
+        } else {
+            System.out.println(hDivisor == 0);
         }
 
+// 10.
+        System.out.println("#10:");
         // tell if i1 is higher than i2 squared and smaller than i2 cubed (print as a boolean)
         int i1 = 10;
         int i2 = 3;
         int i2Square = i2 * i2;
         int i2Cube = i2Square * i2;
-        boolean i2Bool = false;
         if(i1 > i2Square && i1 < i2Cube){
-            i2Bool = true;
-            System.out.println(i2Bool);
+            System.out.println(i1 > i2Square && i1 < i2Cube);
+        } else{
+            System.out.println(i1 > i2Square && i1 < i2Cube);
         }
 
+// 11.
+        System.out.println("#11:");
         // tell if j is dividable by 3 or 5 (print as a boolean)
         int j = 1521;
-        boolean jDivide3 = false;
-        boolean jDivide5 = false;
         if (j % 3 == 0){
-            jDivide3 = true;
-            System.out.println("Is j dividable by 3? -- " + jDivide3);
+            System.out.println("Is j dividable by 3? -- ");
+            System.out.println(j % 3 == 0);
         } else if (j % 5 == 0) {
-            jDivide5 = true;
-            System.out.println("Is j dividable by 5? -- " + jDivide5);
+            System.out.println("Is j dividable by 5? -- ");
+            System.out.println(j % 5 == 0);
         }
 
-        //fill the k variable with its cotnent 4 times
+// 12.
+        System.out.println("#12:");
+        //fill the k variable with its content 4 times
         String k = "Apple";
         k = k + k + k + k;
         System.out.println(k);
-
     }
 }
