@@ -35,17 +35,14 @@ public class VariableMutation {
         System.out.println("#6:");
         int f1 = 123;
         int f2 = 345;
-
-// 7.
-        System.out.println("#7:");
         if (f1 > f2){
             System.out.println(f1>f2);
         } else {
             System.out.println(f1>f2);
         }
 
-// 8.
-        System.out.println("#8:");
+// 7.
+        System.out.println("#7:");
         int g1 = 350;
         int g2 = 200;
         if(g2*g2 > g1){
@@ -54,8 +51,8 @@ public class VariableMutation {
             System.out.println(g2*g2 > g1);
         }
 
-// 9.
-        System.out.println("#9:");
+// 8.
+        System.out.println("#8:");
         int h = 135798745;
         int hDivisor = h % 11;
         if (hDivisor == 0){
@@ -64,8 +61,8 @@ public class VariableMutation {
             System.out.println(hDivisor == 0);
         }
 
-// 10.
-        System.out.println("#10:");
+// 9.
+        System.out.println("#9:");
         // tell if i1 is higher than i2 squared and smaller than i2 cubed (print as a boolean)
         int i1 = 10;
         int i2 = 3;
@@ -77,8 +74,8 @@ public class VariableMutation {
             System.out.println(i1 > i2Square && i1 < i2Cube);
         }
 
-// 11.
-        System.out.println("#11:");
+// 10.
+        System.out.println("#10:");
         // tell if j is dividable by 3 or 5 (print as a boolean)
         int j = 1521;
         if (j % 3 == 0){
@@ -89,8 +86,8 @@ public class VariableMutation {
             System.out.println(j % 5 == 0);
         }
 
-// 12.
-        System.out.println("#12:");
+// 11.
+        System.out.println("#11:");
         //fill the k variable with its content 4 times
         String k = "Apple";
         k = k + k + k + k;

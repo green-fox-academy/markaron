@@ -10,8 +10,8 @@ public class MileToKmConverter {
         Scanner scanner = new Scanner(System.in);
         System.out.println("What's your number?");
         int km = scanner.nextInt();
-        //0.621371
-        System.out.println(km);
+        km *= 0.621371;
+        System.out.println("Your magic number is " + km +  " miles.");
 
     }
 }
