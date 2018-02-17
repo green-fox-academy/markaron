@@ -5,6 +5,7 @@ public class DrawTriangle {
         Scanner input = new Scanner(System.in);
         System.out.println("Input a number for your triangle, then press enter.");
         int height = input.nextInt();
+
         for (int i = 0; i < height; i++) {
             for (int j = 0; j <= i ; j++) {
                 System.out.print("*");
