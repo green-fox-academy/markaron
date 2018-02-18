@@ -9,7 +9,7 @@
 /* Style the links inside the navigation bar */
 .topnav a {
     float: right;
-    color: #ff0099;
+    color: #00d7fd;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -33,9 +33,6 @@
     text-align: center;
 }
 
-.junior{
-    color: magenta;
-}
 
 article {
     float: center;
