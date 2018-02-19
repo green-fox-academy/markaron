@@ -5,11 +5,11 @@ public class SumAll {
     }
 
     public static void sum(int[] value){
-        int sum = 0;
+        int ai = 0;
         for (int i = 0; i < value.length; i++){
-            sum = sum + value[i];
+            ai = ai + value[i];
         }
-        System.out.println(sum);
+        System.out.println(ai);
     }
 
 }
