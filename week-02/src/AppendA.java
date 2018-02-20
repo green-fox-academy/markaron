@@ -2,8 +2,10 @@ public class AppendA {
     public static void main(String[] args) {
         String [] nimals = {"kuty", "macsk", "cic"};
 
-        for (int i = 0; i < nimals.length; i++ ){
+        int i = 0;
+        while (i < nimals.length) {
             System.out.println(nimals[i] + "a");
+            i++;
         }
     }
 }

@@ -13,5 +13,4 @@ public class ReverseJava {
         System.out.println(Arrays.toString(aj));
     }
 
-
 }
