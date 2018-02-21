@@ -32,8 +32,8 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
      }
 
      // Don't touch the code below
-     static int WIDTH = 320;
-     static int HEIGHT = 343;
+     static int WIDTH = 1000;
+     static int HEIGHT = 1000;
      public static void main(String[] args) {
          JFrame jFrame = new JFrame("Drawing");
          jFrame.setSize(new Dimension(WIDTH, HEIGHT));
