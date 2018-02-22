@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 // Check if list contains all of the following elements: 4,8,12,16
@@ -15,4 +14,4 @@ public class IsInList {
         return input.containsAll(checkList);
         }
     }
-}
+
