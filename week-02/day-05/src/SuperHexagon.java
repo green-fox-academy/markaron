@@ -4,15 +4,20 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class SuperHexagon {
   public static void mainDraw(Graphics graphics){
-    // draw a red horizontal line to the canvas' middle.
-    // draw a green vertical line to the canvas' middle.
+    hexaDraw(graphics);
+  }
 
+  public static void hexaDraw(Graphics graphics){
+    int [] xPoints = {WIDTH/2 - 50, WIDTH/2 + 50, WIDTH/2 + 100, WIDTH/2 + 50, WIDTH/2 - 50, WIDTH/2 - 100};
+    int [] yPoints = {HEIGHT/2 - 86, HEIGHT/2 - 86, HEIGHT/2, HEIGHT/2 +86, HEIGHT/2 + 86, HEIGHT/2 };
+    int numPonts = 6;
+    graphics.drawPolygon(xPoints, yPoints, numPonts);
 
   }
 
   // Don't touch the code below
-  static int WIDTH = 320;
-  static int HEIGHT = 343;
+  static int WIDTH = 1000;
+  static int HEIGHT = 1000;
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
