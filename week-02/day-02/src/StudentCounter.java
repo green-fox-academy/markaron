@@ -47,7 +47,29 @@ public class StudentCounter {
     // Display the following things:
     //  - Who has got more candies than 4 candies
     //  - Sum the age of people who have lass than 5 candies
-    
+    System.out.println("They have more than 4 candies: ");
+
+    for (int i = 0; i < map.size() ; i++) {
+      Map<String, Object> element = map.get(i);
+      int candies = (int) element.get("candies");
+      if (candies > 4) {
+        System.out.println(element.get("name"));
+      }
+    }
+
+      System.out.println("This is the sum of the age for those who have less than 5 candies: ");
+      double sum = 0;
+      for (int j = 0; j < map.size() ; j++) {
+        Map<String, Object> elements = map.get(j);
+        int candies = (int) elements.get("candies");
+        double age = (double) elements.get("age");
+        if (candies < 5){
+          sum +=  age;
+        }
+        }
+    System.out.println(sum);
+    //  System.out.println(element);
+    //  System.out.println(element.get("name"));
 
   }
 }
