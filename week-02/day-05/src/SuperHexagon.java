@@ -12,21 +12,44 @@ public class SuperHexagon {
     // int offsetY = input.nextInt();
     int offsetX = 0;
     int offsetY = 0;
-    hexaDraw(graphics,offsetX, offsetY);
+    int offsetYY = 0;
+
+    for (int i = 0; i < 5 ; i++) {
+      if ( i < 3){
+        offsetX += 75;
+        offsetYY = i * 43;
+      }else if ( i == 3){
+        offsetX -= 75;
+        offsetYY = i * 43;
+      }
+      for (int j = 0; j < 6 ; j++) {
+        if (i == 1 && j >= 5){
+          } else if ( i == 2 && j >= 4 ){
+        }else {
+          offsetY = j * 86 + offsetYY;
+        }
+       hexaDraw(graphics,offsetX,offsetY);
+
+      }
+    }
+    
+    //hexaDraw(graphics,offsetX, offsetY);
   }
 
   public static void hexaDraw(Graphics graphics, int offsetX, int offsetY){
-    int [] xPoints = {WIDTH/2 - 50 + offsetX, WIDTH/2 + 50 + offsetX, WIDTH/2 + 100 + offsetX, WIDTH/2 + 50 + offsetX,
-            WIDTH/2 - 50 + offsetX, WIDTH/2 - 100 + offsetX};
-    int [] yPoints = {HEIGHT/2 - 86 + offsetY, HEIGHT/2 - 86 + offsetY, HEIGHT/2 + offsetY, HEIGHT/2 +86 + offsetY,
-            HEIGHT/2 + 86 + offsetY, HEIGHT/2 + offsetY};
+    int x = 1000;  // the half of the canvas size
+    int y = 90;
+    int [] xPoints = {x - 25 + offsetX, x + 25 + offsetX, x + 50 + offsetX, x + 25 + offsetX,
+            x - 25 + offsetX, x - 50 + offsetX};
+    int [] yPoints = {y - 43 + offsetY, y - 43 + offsetY, y + offsetY, y + 43 + offsetY,
+            y + 43 + offsetY, y + offsetY};
     int numPonts = 6;
     graphics.drawPolygon(xPoints, yPoints, numPonts);
 
   }
 
   // Don't touch the code below
-  static int WIDTH = 1000;
+  static int WIDTH = 2000;
   static int HEIGHT = 1000;
 
   public static void main(String[] args) {
