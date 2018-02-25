@@ -15,7 +15,7 @@ public class SuperHexagon {
     int offsetY = 0;
     int offsetYY = 43;
     boolean flipOffsetX = true;
-    int superHexHeight = 7;
+    int superHexHeight = 11;
     int heightCut = 0;
 
     for (int i = 0; i < superHexHeight+1; i++) {
@@ -26,13 +26,13 @@ public class SuperHexagon {
       heightCut++;
       offsetY = offsetYY;
       offsetYY += 43;
-      if (i > 2 && flipOffsetX) {
+      if (i >= superHexHeight /2 && flipOffsetX) {
         offsetX = 0;
         offsetY = 0;
         offsetYY = 43;
         flipOffsetX = false;
         heightCut = 0;
-      } else if (i > 2) {
+      } else if (i >= superHexHeight /2) {
         offsetX -= 75;
       } else {
         offsetX += 75;
@@ -65,7 +65,7 @@ public class SuperHexagon {
 
   // Don't touch the code below
   static int WIDTH = 1000;
-  static int HEIGHT = 800;
+  static int HEIGHT = 1000;
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
