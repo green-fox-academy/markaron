@@ -63,13 +63,20 @@ public class StudentCounter {
         Map<String, Object> elements = map.get(j);
         int candies = (int) elements.get("candies");
         double age = (double) elements.get("age");
+
         if (candies < 5){
           sum +=  age;
         }
         }
     System.out.println(sum);
-    //  System.out.println(element);
-    //  System.out.println(element.get("name"));
+
+
+    for (int i = 0; i < map.size() ; i++) {
+      Map<String, Object> element = map.get(i);
+      System.out.println(element);
+      System.out.println(element.get("name"));
+
+    }
 
   }
 }
