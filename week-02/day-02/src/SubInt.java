@@ -21,7 +21,7 @@ public class SubInt {
    int index = list.indexOf(num);
     for (int i = 0; i < stringList.length(); i++) {
       System.out.println(index);
-      index = list.indexOf(num,);
+      index = list.indexOf(num);
     }
    }
   }
