@@ -19,6 +19,18 @@ public class TicTacToe {
         list.add(line);
       }
       System.out.println(list);
+
+      for (int i = 0; i <list.size() ; i++) {
+        if (list.get(i).equals("XXX")) {
+          System.out.println("X win");
+          return;
+        } else if (list.get(i).equals("000")) {
+          System.out.println("0 win");
+          return;
+        }else{
+          System.out.println("draw");
+        }
+      }
     }catch (IOException e){
       System.out.println(e);
     }
