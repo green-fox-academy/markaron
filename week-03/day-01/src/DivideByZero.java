@@ -7,7 +7,6 @@ public class DivideByZero {
 
     System.out.println(divider(num));
   }
-
   public static int divider (int num){
     try{
       num = 10 / num;

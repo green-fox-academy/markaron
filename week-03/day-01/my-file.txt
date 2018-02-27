@@ -1,3 +1,5 @@
 black
 gray
 white
+red
+blue

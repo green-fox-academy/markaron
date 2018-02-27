@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class PrintEachLine {
   public static void main(String[] args) {
-    ArrayList<String> list = new ArrayList<>(Arrays.asList("black", "gray", "white"));
+    ArrayList<String> list = new ArrayList<>(Arrays.asList("black", "gray", "white","red","blue"));
     String pathString = "my-file.txt";
     Path path1 = Paths.get(pathString);
     File file1 = new File (pathString);
