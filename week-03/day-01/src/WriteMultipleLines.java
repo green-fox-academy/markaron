@@ -19,25 +19,27 @@ import java.util.Arrays;
 public class WriteMultipleLines {
   public static void main(String[] args) {
     String word = "apple";
-    String pathString = "my-new-file.txt";
+    String pathString = "01file.txt";
     Path path1 = Paths.get(pathString);
     int num = 5;
-    fileWriter(path1,word,num);
+    fileWriter(path1,word,num, pathString);
+    }
 
-  }
-
-  public static void fileWriter (Path path1, String word, int num){
-    //File file1 = new File (path1);
+  public static void fileWriter (Path path1, String word, int num, String pathstring){
+    File file1 = new File (pathstring);
     ArrayList<String> list = new ArrayList<>(Arrays.asList(word));
     try{
-      for (int i = 1; i < num; i++) {
+      if (!file1.exists()){
+        file1.createNewFile();
+      }
+      for (int i = 0; i < num; i++) {
         Files.write(path1,list, StandardOpenOption.APPEND);
       }
       for (String line: Files.readAllLines(path1)){
         System.out.println(line);
       }
     }catch (IOException e){
-
+      System.out.println(e);
     }
   }
 }
