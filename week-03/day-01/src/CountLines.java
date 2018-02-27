@@ -9,18 +9,20 @@ import java.nio.file.Paths;
 public class CountLines {
   public static void main(String[] args) {
 
-    String pathString = "my-file.txt";
-    countLines(pathString);
-  }
+    String pathString = "file.txt";
+    System.out.println(countLines(pathString));
 
-  public static void countLines(String fileName) {
+  }
+  public static long countLines(String fileName) {
     Path file1 = Paths.get(fileName);
-    int lineNum = 0;
+    long counter = 0;
     try {
-      System.out.println(Files.lines(file1).count());
-    } catch (IOException e) {
+      counter = Files.lines(file1).count();
+    } catch (NoSuchFieldException | IOException e) {
       e.printStackTrace();
+      return counter;
     }
+    return counter;
     }
   }
 
