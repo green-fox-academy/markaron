@@ -39,8 +39,11 @@ public class Dice {
     myDice.getCurrent();
     myDice.roll();
     System.out.println(Arrays.toString(myDice.getCurrent()));
+    diceCheater(myDice);
+    System.out.println(Arrays.toString(myDice.getCurrent()));
+  }
 
-
+  public static Dice diceCheater (Dice myDice){
     for (int i = 0; i < 6; i++) {
       boolean dice = true;
       while(dice){
@@ -51,7 +54,6 @@ public class Dice {
         }
       }
     }
-
-    System.out.println(Arrays.toString(myDice.getCurrent()));
+    return myDice;
   }
 }
