@@ -4,10 +4,11 @@ public class Sharpie {
   float inkAmount;
 
   public Sharpie (String color, float width){
-    inkAmount = 100;
+    inkAmount = 2;
   }
 
   public void use(){
     inkAmount--;
   }
+
 }
