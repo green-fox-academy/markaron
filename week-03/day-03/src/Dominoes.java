@@ -8,6 +8,10 @@ public class Dominoes {
     // Order them into one snake where the adjacent dominoes have the same numbers on their adjacent sides
     // eg: [2, 4], [4, 3], [3, 5] ...
 
+    dominoSnaker(dominoes);
+  }
+
+  public static void dominoSnaker (List<Domino> dominoes){
 
     for (int i = 0; i < dominoes.size(); i++) {
       for (int j = 1; j < dominoes.size(); j++) {
@@ -17,16 +21,10 @@ public class Dominoes {
           dominoes.add(i + 1, dominoes.get(j));
           dominoes.remove(j+1);
         }
-
       }
     }
     System.out.println(dominoes);
   }
-
-  //System.out.println(test[1]);
-  //System.out.println(dominoes);
-
-
 
   static List<Domino> initializeDominoes() {
     List<Domino> dominoes = new ArrayList<>();
