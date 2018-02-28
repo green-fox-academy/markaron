@@ -38,9 +38,9 @@ public class Dice {
     Dice myDice = new Dice();
     myDice.getCurrent();
     myDice.roll();
-    System.out.println(Arrays.toString(myDice.getCurrent()));
+    System.out.println("The first roll: " + Arrays.toString(myDice.getCurrent()));
     diceCheater(myDice);
-    System.out.println(Arrays.toString(myDice.getCurrent()));
+    System.out.println("The rolls after cheating, hehe: " + Arrays.toString(myDice.getCurrent()));
   }
 
   public static Dice diceCheater (Dice myDice){
