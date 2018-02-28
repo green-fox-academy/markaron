@@ -9,28 +9,24 @@ public class Dominoes {
     // eg: [2, 4], [4, 3], [3, 5] ...
 
 
-    //int [] test = myDomino.getValues();
-
-    List<Integer> result = new ArrayList<>();
-
     for (int i = 0; i < dominoes.size(); i++) {
-      for (int j = 0; j <1 ; j++) {
+      for (int j = 1; j < dominoes.size(); j++) {
+        Domino myDomino = dominoes.get(i);
+        Domino dominoTwo = dominoes.get(j);
+        if (myDomino.getValues()[1] == dominoTwo.getValues()[0]) {
+          dominoes.add(i + 1, dominoes.get(j));
+          dominoes.remove(j+1);
+        }
 
-      }
-      Domino dom1 = dominoes.get(i);
-      Domino dom2 = dominoes.get(i+1);
-      int dom1Value = dom1.getValues()[0];
-      int dom2Value = dom2.getValues()[0];
-      if (dom1Value > dom2Value){
-        result.add(0,dom2Value);
       }
     }
-    System.out.println(result.toString());
-
-    //System.out.println(test[1]);
-    //System.out.println(dominoes);
+    System.out.println(dominoes);
   }
-  
+
+  //System.out.println(test[1]);
+  //System.out.println(dominoes);
+
+
 
   static List<Domino> initializeDominoes() {
     List<Domino> dominoes = new ArrayList<>();
