@@ -8,6 +8,7 @@ public class Ship {
   Pirate pirate;
   int alivePirates = 0;
   int numberOfConsumedRum;
+  int shipScore;
 
   public void add(Pirate pirate) {
     ship.add(pirate);
@@ -18,7 +19,7 @@ public class Ship {
     ship.add(Captain);
 
     Random n = new Random();
-    int ranNum = n.nextInt(10) + 1;
+    int ranNum = n.nextInt(15) + 4;
     for (int i = 0; i < ranNum; i++) {
       String name = "Lad " + i;
       Pirate pirate = new Pirate(name);
@@ -26,6 +27,7 @@ public class Ship {
     }
     System.out.println("~~~ Ahoy! The ship has " + this.numberOfAlivePirates() + " living pirates!!! Aye!");
     System.out.println("~~~ The captain has already drank " + this.getNumberOfConsumedRum() + " bottles of rum.");
+    System.out.println("~~~ This ships score is " + calculateShipScore());
   }
 
   public int numberOfAlivePirates (){
@@ -40,12 +42,23 @@ public class Ship {
 
   public int getNumberOfConsumedRum (){
     Random m = new Random();
-    int ranRum = m.nextInt(10) + 1;
+    int ranRum = m.nextInt(8);
     return numberOfConsumedRum = ranRum;
 
   }
 
+  public int calculateShipScore(){
+    shipScore = alivePirates - numberOfConsumedRum;
+    return shipScore;
+  }
 
+  public boolean battle (Ship ship){
+    if (this.shipScore > shipScore){
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   @Override
   public String toString() {
