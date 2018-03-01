@@ -12,6 +12,7 @@ public class BattleApp_Main {
     ship1.fillShip();
 
     System.out.println(ship1);
+    //ship1.numberOfAlivePirates();
   }
 
 }

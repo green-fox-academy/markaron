@@ -19,12 +19,12 @@ public class Pirate {
 
   @Override
   public String toString() {
-    return "Pirate{" +
-            "name='" + name + '\'' +
-            ", intToxication=" + intToxication +
-            ", passOut=" + passOut +
-            ", dead=" + dead +
-            '}';
+    return
+            " ### His name is '" + name + '\'' +
+            ", intoxication = " + intToxication +
+            ", is passed out?: " + passOut +
+            ", is he dead?: " + dead +
+                    " ### ";
   }
 
   public void drinkSomeRum() {
