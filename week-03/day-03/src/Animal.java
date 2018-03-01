@@ -18,6 +18,14 @@ public class Animal {
     thirst++;
   }
 
+  @Override
+  public String toString() {
+    return "Animal{" +
+            "hunger=" + hunger +
+            ", thirst=" + thirst +
+            '}';
+  }
+
   public static void main(String[] args) {
     Animal craw = new Animal();
     System.out.println(craw.thirst);
