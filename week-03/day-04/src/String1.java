@@ -1,18 +1,20 @@
 public class String1 {
   public static void main(String[] args) {
     String word = "axaxaxax";
-    int n = 0;
-    xToy(word);
+    int counter = 0;
+    String tempWord = "";
+    System.out.println(xToy(word, counter, tempWord));
   }
 
-  public static void xToy (String word, int n){
-    if(!word.contains("x")){
-      System.out.println("no x-es");
-    }else {
-      if (word.contentEquals("x")){
-        word.replace("x","y");
-        System.out.println(word.charAt(n));
+  public static String xToy (String word, int counter, String tempWord){
+    if(counter == word.length()){
+      return tempWord;
+    }else if (word.charAt(counter) == 'x'){
+      tempWord += 'y';
+    }else{
+      tempWord += word.charAt(counter);
     }
-    }
+    counter++;
+    return xToy(word,counter,tempWord);
   }
 }
