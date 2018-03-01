@@ -10,6 +10,7 @@ public class SharpieSetMain {
     mySet.add(whiteSharp);
     mySet.add(blueSharp);
 
+
     System.out.println(whiteSharp.inkAmount);
     whiteSharp.use();
     System.out.println(whiteSharp.inkAmount);

@@ -4,6 +4,7 @@ public class Teacher {
     student.learn();
   }
   public void answer(){
+    System.out.println("Yes");
 
   }
 }
