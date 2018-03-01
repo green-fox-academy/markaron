@@ -9,8 +9,7 @@ public class BattleApp_Main {
     Pirate Hanz = new Pirate("Hanz");
     Pirate Ubba = new Pirate("Ubba");
 
-    ship1.add(Joe);
-    ship1.add(Frank);
+    ship1.fillShip();
 
     System.out.println(ship1);
   }

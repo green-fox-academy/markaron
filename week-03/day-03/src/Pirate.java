@@ -20,7 +20,8 @@ public class Pirate {
   @Override
   public String toString() {
     return "Pirate{" +
-            "intToxication=" + intToxication +
+            "name='" + name + '\'' +
+            ", intToxication=" + intToxication +
             ", passOut=" + passOut +
             ", dead=" + dead +
             '}';
