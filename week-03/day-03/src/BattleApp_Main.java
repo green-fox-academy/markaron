@@ -13,6 +13,9 @@ public class BattleApp_Main {
 
     System.out.println(ship1);
     //ship1.numberOfAlivePirates();
+
+    System.out.println(ship1.alivePirates);
+    System.out.println(ship1.numberOfConsumedRum);
   }
 
 }

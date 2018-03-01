@@ -7,6 +7,7 @@ public class Ship {
   //Pirate Captain;
   Pirate pirate;
   int alivePirates = 0;
+  int numberOfConsumedRum;
 
   public void add(Pirate pirate) {
     ship.add(pirate);
@@ -23,17 +24,25 @@ public class Ship {
       Pirate pirate = new Pirate(name);
       ship.add(pirate);
     }
-    this.numberOfAlivePirates();
+    System.out.println("~~~ Ahoy! The ship has " + this.numberOfAlivePirates() + " living pirates!!! Aye!");
+    System.out.println("~~~ The captain has already drank " + this.getNumberOfConsumedRum() + " bottles of rum.");
   }
 
-  public void numberOfAlivePirates (){
+  public int numberOfAlivePirates (){
     alivePirates = 0;
     for (int i = 0; i <ship.size() ; i++) {
       if(!ship.get(i).dead){
         alivePirates++;
       }
     }
-    System.out.println("~~~ Ahoy! The ship has " + alivePirates + " living pirates!!! Aye!");
+    return alivePirates;
+  }
+
+  public int getNumberOfConsumedRum (){
+    Random m = new Random();
+    int ranRum = m.nextInt(10) + 1;
+    return numberOfConsumedRum = ranRum;
+
   }
 
 
