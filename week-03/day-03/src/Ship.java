@@ -3,20 +3,20 @@ import java.util.List;
 import java.util.Random;
 
 public class Ship {
-  List<Pirate> ship = new ArrayList<>();
+  List<Pirate> ship = new ArrayList<>();  //ship az inkább a típus alapján, pirate list legyen
   //Pirate Captain;
   Pirate pirate;
   int alivePirates = 0;
   int numberOfConsumedRum;
-  int shipScore;
+  private int shipScore;
 
   public void add(Pirate pirate) {
     ship.add(pirate);
   }
 
   public void fillShip() {
-    Pirate Captain = new Pirate("Captain Moby");
-    ship.add(Captain);
+    Pirate captain = new Pirate("Captain Moby");
+    ship.add(captain);
 
     Random n = new Random();
     int ranNum = n.nextInt(15) + 4;
@@ -31,7 +31,7 @@ public class Ship {
   }
 
   public int numberOfAlivePirates (){
-    alivePirates = 0;
+    int alivePirates = 0;                            //
     for (int i = 0; i <ship.size() ; i++) {
       if(!ship.get(i).dead){
         alivePirates++;
@@ -53,7 +53,7 @@ public class Ship {
   }
 
   public boolean battle (Ship ship){
-    if (this.shipScore > shipScore){
+    if (this.shipScore > ship.shipScore){
       return true;
     } else {
       return false;

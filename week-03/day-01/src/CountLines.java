@@ -19,7 +19,7 @@ public class CountLines {
       }
       System.out.println(counter);
       } catch (IOException e) {
-      //e.printStackTrace();
+      e.printStackTrace();
       System.out.println("0");
     }
     }
