@@ -58,17 +58,21 @@ public class Ship {
 
   public boolean battle (Ship ship){
     if (this.shipScore > ship.shipScore){
+      int howManyPirateDies = new Random().nextInt(ship.pirateCrew.size());
+      for (int i = 0; i < howManyPirateDies; i++) {
+        int whichPirateDies = new Random().nextInt(howManyPirateDies);
+        ship.pirateCrew.get(whichPirateDies).dead = true;
+      }
+      for (int i = 0; i < this.pirateCrew.size(); i++) {
+        int pirateRumConsum = new Random().nextInt(5);
+        this.pirateCrew.get(i).intToxication = pirateRumConsum;
+      }
       return true;
     } else {
+      
       return false;
     }
   }
-
-//  @Override
-//  public String toString() {
-//    return "This ships crew briefing: " + pirateCrew +
-//            '.';
-//  }
 
   @Override
   public String toString() {
