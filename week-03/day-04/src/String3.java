@@ -10,9 +10,8 @@ public class String3 {
     if(counter == word.length()){
       return tempWord;
     }else{
-      tempWord += "*";
-      tempWord += word.charAt(counter);
-    }
+      tempWord += "*" + word.charAt(counter);
+      }
     counter++;
     return xToY(word,counter,tempWord);
   }

@@ -7,20 +7,27 @@ public class SharpieSet {
   public SharpieSet(){
     this.mySharpieSet = new ArrayList<>();
   }
-  public boolean countUsable (Sharpie sharpie){
-    if (sharpie.inkAmount > 0 );
-      return true;
+
+  public boolean countUsable () {
+    for (Sharpie sharpie : this.mySharpieSet) {
+      if (sharpie.inkAmount > 0) {
+        return true;
+      }
+    }
+    return false;
   }
+
   public List<Sharpie> getCurrent(){
     return mySharpieSet;
   }
 
-  public void add(Sharpie sharpieColors){
-    mySharpieSet.add(sharpieColors);
+  public void add(Sharpie markers){
+    mySharpieSet.add(markers);
   }
+
   public void removeTrash (){
     for (Sharpie sharpie: this.mySharpieSet){
-      if (sharpie.inkAmount <= 0){
+      if (sharpie.inkAmount < 0){
         mySharpieSet.remove(sharpie);
       }
     }
