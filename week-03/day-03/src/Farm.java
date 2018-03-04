@@ -1,27 +1,39 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Farm {
-  List<Animal> myAnimals = new ArrayList<>();
+  List<Animal> animals = new ArrayList<>();
+  int numberOfSlots = 5;
 
-//  public Farm breed(Farm myAnimals) {
-//    Animal pigeon = new Animal();
-//
-//    for (int i = 0; i < Farm.size(); i++) {
-//      if (myAnimals.get(i) == null) {
-//        myAnimals.add(i, pigeon);
-//        return myAnimals;
-//      }
-//    }
-//    return myAnimals;
-//  }
+  public void add (Animal animal){
+    this.animals.add(animal);
+  }
+  public void breed(){
+    if ( numberOfSlots > 0 ){
+      this.animals.add(new Animal());
+      numberOfSlots--;
+    } else {
+      System.out.println("no more room for animals");
+    }
+  }
 
-  public static void main(String[] args) {
-    Farm myFarm = new Farm();
-//    myFarm.breed(myFarm);
-    System.out.println(myFarm.myAnimals);
+  public void slaughter(){
+    int leastHungry = animals.get(0).hunger;
+    int tempAnimalIndex = 0;
+    for (int i = 0; i <animals.size()-1 ; i++) {
+      if (animals.get(i).hunger < leastHungry){
+        tempAnimalIndex = i;
+      }
+    }
+    System.out.println("The least hungry had " + animals.get(tempAnimalIndex).hunger + " hunger. ");
+    animals.remove(tempAnimalIndex);
+  }
 
-
+  @Override
+  public String toString() {
+    return "Farm{" +
+            "animals=" + animals +
+            ", numberOfSlots= " + numberOfSlots +
+            '}';
   }
 }
