@@ -17,25 +17,26 @@ public class Ship {
 
   public void fillShip() {
     Pirate captain = new Pirate("Captain Moby");
-    pirateCrew.add(captain);
+    this.pirateCrew.add(captain);
 
     Random n = new Random();
     int ranNum = n.nextInt(15) + 4;
     for (int i = 0; i < ranNum; i++) {
       String name = "Lad " + i;
       Pirate pirate = new Pirate(name);
-      pirateCrew.add(pirate);
+      this.pirateCrew.add(pirate);
     }
     this.getNumberOfConsumedRum();
-    System.out.println("~~~ Ahoy! The " + name +" has " + this.numberOfAlivePirates() + " living pirates!!! Aye!");
-    System.out.println("~~~ The captain has already drank " + pirateCrew.get(0).intToxication + " bottles of rum.");
-    System.out.println("~~~ This ships score is " + calculateShipScore());
+    this.calculateShipScore();
+//    System.out.println("~~~ Ahoy! The " + name +" has " + this.numberOfAlivePirates() + " living pirates!!! Aye!");
+//    System.out.println("~~~ The captain has already drank " + pirateCrew.get(0).intToxication + " bottles of rum.");
+//    System.out.println("~~~ This ships score is " + calculateShipScore());
   }
 
   public int numberOfAlivePirates (){
     int alivePirates = 0;
-    for (int i = 0; i <pirateCrew.size() ; i++) {
-      if(!pirateCrew.get(i).dead){
+    for (int i = 0; i <this.pirateCrew.size() ; i++) {
+      if(!this.pirateCrew.get(i).dead){
         alivePirates++;
       }
     }
@@ -47,11 +48,11 @@ public class Ship {
     Random m = new Random();
     int ranRum = m.nextInt(8);
     //numberOfConsumedRum = ranRum;
-    pirateCrew.get(0).intToxication = ranRum;
+    this.pirateCrew.get(0).intToxication = ranRum;
   }
 
   public int calculateShipScore(){
-    shipScore = numberOfAlivePirates() - pirateCrew.get(0).intToxication;
+    shipScore = this.numberOfAlivePirates() - this.pirateCrew.get(0).intToxication;
     return shipScore;
   }
 
@@ -63,9 +64,17 @@ public class Ship {
     }
   }
 
+//  @Override
+//  public String toString() {
+//    return "This ships crew briefing: " + pirateCrew +
+//            '.';
+//  }
+
   @Override
   public String toString() {
-    return "This ships crew briefing: " + pirateCrew +
+    return "The " + this.name + " crew briefing: The captain has already drank " + this.pirateCrew.get(0).intToxication +
+            " bottles of rum. There are " + this.numberOfAlivePirates() + " alive pirates on board. The score is: "
+            + this.shipScore +
             '.';
   }
 }
