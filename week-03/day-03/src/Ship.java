@@ -4,13 +4,13 @@ import java.util.Random;
 
 public class Ship {
   List<Pirate> pirateCrew = new ArrayList<>();
-  //Pirate pirate;
   private int shipScore;
   String name;
 
   public Ship (String name){
     this.name = name;
   }
+
   public void add(Pirate pirate) {
     pirateCrew.add(pirate);
   }
@@ -44,10 +44,8 @@ public class Ship {
   }
 
   public void getNumberOfConsumedRum (){
-    //int numberOfConsumedRum = 0;
     Random m = new Random();
     int ranRum = m.nextInt(8);
-    //numberOfConsumedRum = ranRum;
     this.pirateCrew.get(0).intToxication = ranRum;
   }
 
