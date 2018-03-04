@@ -3,10 +3,10 @@ public class String3 {
     String word = "axaxaxax";
     int counter = 0;
     String tempWord = "";
-    System.out.println(xToy(word, counter, tempWord));
+    System.out.println(xToY(word, counter, tempWord));
   }
 
-  public static String xToy (String word, int counter, String tempWord){
+  public static String xToY (String word, int counter, String tempWord){
     if(counter == word.length()){
       return tempWord;
     }else{
@@ -14,6 +14,6 @@ public class String3 {
       tempWord += word.charAt(counter);
     }
     counter++;
-    return xToy(word,counter,tempWord);
+    return xToY(word,counter,tempWord);
   }
 }
