@@ -57,6 +57,7 @@ public class Ship {
   }
 
   public boolean battle (Ship ship){
+    System.out.println("The " + this.name + " and the " + ship.name + " engage in battle!");
     if (this.shipScore > ship.shipScore){
       int howManyPirateDies = new Random().nextInt(ship.pirateCrew.size());
       for (int i = 0; i < howManyPirateDies; i++) {
@@ -67,18 +68,28 @@ public class Ship {
         int pirateRumConsum = new Random().nextInt(5);
         this.pirateCrew.get(i).intToxication = pirateRumConsum;
       }
+      System.out.println(this.name + " Wins!");
       return true;
     } else {
-      
+      int howManyPirateDies = new Random().nextInt(this.pirateCrew.size());
+      for (int i = 0; i < howManyPirateDies; i++) {
+        int whichPirateDies = new Random().nextInt(howManyPirateDies);
+        this.pirateCrew.get(whichPirateDies).dead = true;
+      }
+      for (int i = 0; i < ship.pirateCrew.size() ; i++) {
+        int pirateRumCinsum = new Random().nextInt(5);
+        ship.pirateCrew.get(i).intToxication = pirateRumCinsum;
+      }
+      System.out.println(ship.name + "Wins!");
       return false;
     }
   }
 
   @Override
-  public String toString() {
+ public String toString() {
     return "The " + this.name + " crew briefing: The captain has already drank " + this.pirateCrew.get(0).intToxication +
             " bottles of rum. There are " + this.numberOfAlivePirates() + " alive pirates on board. The score is: "
-            + this.shipScore +
+            + this.calculateShipScore() +
             '.';
   }
 }

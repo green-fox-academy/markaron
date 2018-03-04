@@ -11,6 +11,11 @@ public class BattleApp_Main {
     System.out.println(ship01);
     System.out.println(ship02);
 
+    ship01.battle(ship02);
+
+    System.out.println(ship01);
+    System.out.println(ship02);
+
   }
 
 }
