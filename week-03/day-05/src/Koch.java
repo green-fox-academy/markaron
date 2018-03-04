@@ -5,7 +5,11 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Koch {
   public static void mainDraw(Graphics graphics) {
-  
+
+  }
+
+  public static void kochSnowFlake(){
+
   }
 
   // Don't touch the code below
