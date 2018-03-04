@@ -3,52 +3,55 @@ import java.util.List;
 import java.util.Random;
 
 public class Ship {
-  List<Pirate> ship = new ArrayList<>();  //ship az inkább a típus alapján, pirate list legyen
-  //Pirate Captain;
-  Pirate pirate;
-  int alivePirates = 0;
-  int numberOfConsumedRum;
+  List<Pirate> pirateCrew = new ArrayList<>();
+  //Pirate pirate;
   private int shipScore;
+  String name;
 
+  public Ship (String name){
+    this.name = name;
+  }
   public void add(Pirate pirate) {
-    ship.add(pirate);
+    pirateCrew.add(pirate);
   }
 
   public void fillShip() {
     Pirate captain = new Pirate("Captain Moby");
-    ship.add(captain);
+    pirateCrew.add(captain);
 
     Random n = new Random();
     int ranNum = n.nextInt(15) + 4;
     for (int i = 0; i < ranNum; i++) {
       String name = "Lad " + i;
       Pirate pirate = new Pirate(name);
-      ship.add(pirate);
+      pirateCrew.add(pirate);
     }
-    System.out.println("~~~ Ahoy! The ship has " + this.numberOfAlivePirates() + " living pirates!!! Aye!");
-    System.out.println("~~~ The captain has already drank " + this.getNumberOfConsumedRum() + " bottles of rum.");
+    this.getNumberOfConsumedRum();
+    System.out.println("~~~ Ahoy! The " + name +" has " + this.numberOfAlivePirates() + " living pirates!!! Aye!");
+    System.out.println("~~~ The captain has already drank " + pirateCrew.get(0).intToxication + " bottles of rum.");
     System.out.println("~~~ This ships score is " + calculateShipScore());
   }
 
   public int numberOfAlivePirates (){
-    int alivePirates = 0;                            //
-    for (int i = 0; i <ship.size() ; i++) {
-      if(!ship.get(i).dead){
+    int alivePirates = 0;
+    for (int i = 0; i <pirateCrew.size() ; i++) {
+      if(!pirateCrew.get(i).dead){
         alivePirates++;
       }
     }
     return alivePirates;
   }
 
-  public int getNumberOfConsumedRum (){
+  public void getNumberOfConsumedRum (){
+    //int numberOfConsumedRum = 0;
     Random m = new Random();
     int ranRum = m.nextInt(8);
-    return numberOfConsumedRum = ranRum;
-
+    //numberOfConsumedRum = ranRum;
+    pirateCrew.get(0).intToxication = ranRum;
   }
 
   public int calculateShipScore(){
-    shipScore = alivePirates - numberOfConsumedRum;
+    shipScore = numberOfAlivePirates() - pirateCrew.get(0).intToxication;
     return shipScore;
   }
 
@@ -62,7 +65,7 @@ public class Ship {
 
   @Override
   public String toString() {
-    return "This ships crew briefing: " + ship +
+    return "This ships crew briefing: " + pirateCrew +
             '.';
   }
 }
