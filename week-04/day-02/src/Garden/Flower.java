@@ -2,9 +2,9 @@ package Garden;
 
 public class Flower {
   private int waterNeed = 5;
-  private double waterDrink = 0.75;
+  private double waterAbsorb = 0.75;
   private String color;
-  private double waterAmount = 10;
+  private double waterAmount = 0;
 
   public Flower(String color) {
     this.color = color;
@@ -14,16 +14,12 @@ public class Flower {
     return color;
   }
 
-  public void setColor(String color) {
-    this.color = color;
-  }
-
   public double getWaterAmount() {
     return waterAmount;
   }
 
   public void setWaterAmount(double waterAmount) {
-    this.waterAmount = waterAmount;
+    this.waterAmount = waterAmount * waterAbsorb;
   }
 
   public boolean flowerThirsty (){
@@ -36,7 +32,8 @@ public class Flower {
   @Override
   public String toString() {
     return "Flower{" +
-            "color='" + color + '\'' +
+            "color ='" + color + '\''
+            + "water = " + waterAmount +
             '}';
   }
 }

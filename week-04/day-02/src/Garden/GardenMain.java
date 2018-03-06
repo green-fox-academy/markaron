@@ -6,6 +6,11 @@ public class GardenMain {
 
     myGarden.addFlower("blue");
     myGarden.addFlower("yellow");
-    myGarden.waterGarden();
+    System.out.println(myGarden);
+    myGarden.gardenCheck();
+    myGarden.waterTheGarden(20);
+    myGarden.gardenCheck();
+    System.out.println(myGarden);
+
   }
 }
