@@ -18,7 +18,7 @@ public class Flower {
     return waterAmount;
   }
 
-  public void setWaterAmount(double waterAmount) {
+  public void setFlowerWaterAmount(double waterAmount) {
     this.waterAmount = waterAmount * waterAbsorb;
   }
 
