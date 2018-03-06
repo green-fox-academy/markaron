@@ -7,4 +7,15 @@ public class Flower extends Plant {
     super.waterNeed = 5;
     super.plantRace = "flower";
   }
+
+  @Override
+  public String toString() {
+    return "Flower{" +
+            "plantRace='" + plantRace + '\'' +
+            ", color='" + color + '\'' +
+            ", waterAmount=" + waterAmount +
+            ", waterUsage=" + waterUsage +
+            ", waterNeed=" + waterNeed +
+            '}';
+  }
 }

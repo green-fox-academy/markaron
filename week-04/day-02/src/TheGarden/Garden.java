@@ -6,17 +6,20 @@ import java.util.List;
 public class Garden {
   List<Plant> myPlants = new ArrayList<>();
 
-  public void flowerAdder (Flower flower, String color){
+  public void flowerAdder (String color){
     myPlants.add(new Flower(color));
   }
+  public void treeAdder (String color){
+    myPlants.add(new Tree(color));
+  }
 
-  double wateringAmount = 0;
 
 
-
-
-  public void watering (double wateringAmount) {
-    int needsWater = 0;
-
+  @Override
+  public String toString() {
+    return "Garden{" +
+            "myPlants=" + myPlants +
+            '}';
   }
 }
+

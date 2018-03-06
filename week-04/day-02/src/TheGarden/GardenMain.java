@@ -8,9 +8,13 @@ public class GardenMain {
     Garden myGarden = new Garden();
 
 
-    myGarden.flowerAdder(new Flower("blue"),"blue");
-
+    myGarden.flowerAdder("blue");
+    myGarden.flowerAdder("yellow");
+    myGarden.treeAdder("purple");
+    myGarden.treeAdder("orange");
     System.out.println(myGarden);
+
+
   }
 
 }
