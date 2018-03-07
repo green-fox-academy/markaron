@@ -4,11 +4,6 @@ abstract public class StringedInstruments extends Instrument{
   int numberOfStrings;
   String soundOfInstrument;
 
-//  public StringedInstruments(int numberOfStrings, String soundOfInstrument) {
-//    this.numberOfStrings = numberOfStrings;
-//    this.soundOfInstrument = soundOfInstrument;
-//  }
-
   public StringedInstruments() {
   }
 
