@@ -6,5 +6,6 @@ public class GnirtsMain {
 
     System.out.println(word.length());
     System.out.println(word.charAt(5));
+    System.out.println(word.subSequence(2,5));
   }
 }

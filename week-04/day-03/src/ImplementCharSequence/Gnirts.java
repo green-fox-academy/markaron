@@ -16,13 +16,12 @@ public class Gnirts implements CharSequence  {
 
   @Override
   public char charAt(int index) {
-
     return field.charAt(index);
   }
 
   @Override
   public CharSequence subSequence(int start, int end) {
-    return null;
+    return field.subSequence(start,end);
   }
 
   @Override
