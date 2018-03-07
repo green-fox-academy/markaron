@@ -19,10 +19,10 @@ public class Domino implements Comparable<Domino> {
   }
 
   @Override
-  public int compareTo(Domino o) {
-    if (values[0] == o.values[1])
+  public int compareTo(Domino Domino) {
+    if (values[0] == Domino.values[1])
       return 0;
-    else if (values[0] >= o.values[1])
+    else if (values[0] >= Domino.values[1])
       return 1;
     else
       return -1;
