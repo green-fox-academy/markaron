@@ -1,13 +1,16 @@
 package Compareable;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Dominoes {
   public static void main(String[] args) {
     List<Domino> dominoes = initializeDominoes();
 
-    
+    Collections.sort(dominoes);
+    System.out.println(dominoes);
+
   }
 
   static List<Domino> initializeDominoes() {
