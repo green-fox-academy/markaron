@@ -16,6 +16,6 @@ public class CountLettersTest {
 
   @Test
   public void dictionaryFromWord() {
-    assertEquals('b',countLetters.dictionaryFromWord(word).get(2));
+    assertEquals((Character) ('b'),countLetters.dictionaryFromWord(word).get(2));
   }
 }
