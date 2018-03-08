@@ -9,11 +9,15 @@ import static org.junit.Assert.*;
 
 public class SumTest {
   List<Integer> list;
+  List<Integer> emptyList;
+  List<Integer> oneElemList;
   Sum input;
 
   @Before
   public void setUp() {
     list = new ArrayList<>(Arrays.asList(1,1,1,2));
+    emptyList = new ArrayList<>(Arrays.asList());
+    oneElemList = new ArrayList<>(Arrays.asList(1));
     input = new Sum();
   }
 
