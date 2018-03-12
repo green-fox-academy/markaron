@@ -1,6 +1,7 @@
 package Zoo;
+import flyable.Flyable;
 
-abstract public class Animal {
+abstract public class Animal implements Flyable{
   String name;
   int age;
 
