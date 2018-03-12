@@ -14,4 +14,19 @@ public class Mammal extends Animal {
   public String breed() {
     return breed;
   }
+
+  @Override
+  public void land() {
+
+  }
+
+  @Override
+  public void fly() {
+
+  }
+
+  @Override
+  public void takeoff() {
+
+  }
 }
