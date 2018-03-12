@@ -1,8 +1,6 @@
 package Compareable;
 
-import java.util.Collections;
-
-public class Domino implements Comparable<Domino> {
+public class Domino implements Comparable<Domino>{
   private final int[] values;
 
   public Domino(int valueA, int valueB) {
@@ -27,4 +25,5 @@ public class Domino implements Comparable<Domino> {
     else
       return -1;
   }
+
 }
