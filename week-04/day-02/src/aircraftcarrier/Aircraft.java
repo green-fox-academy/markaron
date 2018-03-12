@@ -1,11 +1,14 @@
 package aircraftcarrier;
 
 public class Aircraft {
-  int currentAmmo = 0;
-  int maxAmmo;
-  int baseDmg;
-  int dmgDealt;
-  String typeOfPlane;
+   int currentAmmo = 0;
+   int maxAmmo;
+   int baseDmg;
+   int dmgDealt;
+   String typeOfPlane;
+
+  public Aircraft() {
+  }
 
   public int fight(){
     this.currentAmmo = 0;
@@ -30,5 +33,16 @@ public class Aircraft {
 
   public boolean isPriority(){
     return this.typeOfPlane.equals("F35");
+  }
+
+  @Override
+  public String toString() {
+    return "Aircraft{" +
+            "currentAmmo=" + currentAmmo +
+            ", maxAmmo=" + maxAmmo +
+            ", baseDmg=" + baseDmg +
+            ", dmgDealt=" + dmgDealt +
+            ", typeOfPlane='" + typeOfPlane + '\'' +
+            '}';
   }
 }
