@@ -2,14 +2,15 @@ package aircraftcarrier;
 
 public class AircraftMain {
   public static void main(String[] args) {
-    Carrier myCarrier = new Carrier(2000,1000);
-    //List<Aircraft> myPlanes = new ArrayList<>();
-    //Aircraft plane1 = new Aircraft();
-    myCarrier.addAircraft("F16");
-    myCarrier.addAircraft("F13");
-    myCarrier.addAircraft("f35");
-    System.out.println(myCarrier);
-    myCarrier.fill();
-    System.out.println(myCarrier);
+    Carrier carrierRedGun = new Carrier(13,1000);
+    Carrier carrierBluePistol = new Carrier(2500,1100);
+
+    carrierRedGun.addAircraft("F16");
+    carrierRedGun.addAircraft("F16");
+    carrierRedGun.addAircraft("F35");
+
+    System.out.println(carrierRedGun);
+    carrierRedGun.fill();
+    System.out.println(carrierRedGun);
   }
 }

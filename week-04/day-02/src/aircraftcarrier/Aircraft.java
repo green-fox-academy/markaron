@@ -7,7 +7,11 @@ public class Aircraft {
   int dmgDealt;
   String typeOfPlane;
 
-  public Aircraft() {
+  public Aircraft(String typeOfPlane, int maxAmmo, int baseDmg) {
+    this.typeOfPlane = typeOfPlane;
+    this.maxAmmo = maxAmmo;
+    this.baseDmg = baseDmg;
+    currentAmmo = 0;
   }
 
   public int fight() {
@@ -15,16 +19,16 @@ public class Aircraft {
     return dmgDealt = this.baseDmg * this.maxAmmo;
   }
 
-  public int refill(int refillAmmo) {
-    if (refillAmmo > 0) {
+  public void refill(int refillAmmo) {
+    if (refillAmmo >= 0) {
       for (int i = 0; i < refillAmmo; i++) {
-        if (this.currentAmmo < this.maxAmmo)
-        this.currentAmmo++;
-        refillAmmo--;
+        if (this.currentAmmo < this.maxAmmo) {
+          this.currentAmmo++;
+        }
       }
+    } else {
       System.out.println("Not enough ammo for planes.");
     }
-    return refillAmmo;
   }
 
   public String getType() {
@@ -42,7 +46,7 @@ public class Aircraft {
   }
 
   public int getCurrentAmmo() {
-    return currentAmmo;
+    return this.currentAmmo;
   }
 
   public int getMaxAmmo() {
@@ -51,12 +55,12 @@ public class Aircraft {
 
   @Override
   public String toString() {
-    return "Aircraft{" +
+    return "AIRCRAFT {" +
             "currentAmmo=" + currentAmmo +
             ", maxAmmo=" + maxAmmo +
             ", baseDmg=" + baseDmg +
             ", dmgDealt=" + dmgDealt +
             ", typeOfPlane='" + typeOfPlane + '\'' +
-            '}';
+            '#';
   }
 }

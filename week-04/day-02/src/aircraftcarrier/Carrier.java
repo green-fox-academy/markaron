@@ -25,16 +25,16 @@ public class Carrier {
   }
 
   public void fill (){
-    int leftOverAmmo;
     int ammoNeeded = 0;
-    int refillAmmo = 0;
 
     if (this.carrierAmmoStore <= 0){
       System.out.println("Your ship is out of ammo.");
     } else {
+
       for (int i = 0; i < carrier.size(); i++) {
         ammoNeeded += carrier.get(i).getMaxAmmo() - carrier.get(i).getCurrentAmmo();
       }
+
       if (ammoNeeded > this.carrierAmmoStore) {
         for (int i = 0; i < carrier.size(); i++) {
           if (carrier.get(i).isPriority()) {
@@ -42,6 +42,7 @@ public class Carrier {
             this.carrierAmmoStore -= carrier.get(i).getCurrentAmmo();
           }
         }
+
         for (int i = 0; i < carrier.size(); i++) {
           if (!carrier.get(i).isPriority()) {
             carrier.get(i).refill(this.carrierAmmoStore);
