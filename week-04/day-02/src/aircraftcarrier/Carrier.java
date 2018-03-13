@@ -58,6 +58,14 @@ public class Carrier {
     }
   }
 
+  public void fight (Carrier carrier){
+    int carrierDgmDealt = 0;
+    for (int i = 0; i < this.carrier.size() ; i++) {
+        carrierDgmDealt += this.carrier.get(i).planeAttack();
+    }
+    System.out.println(carrierDgmDealt);
+  }
+
   @Override
   public String toString() {
     return "Carrier{" +

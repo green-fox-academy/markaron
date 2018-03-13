@@ -2,7 +2,7 @@ package aircraftcarrier;
 
 public class AircraftMain {
   public static void main(String[] args) {
-    Carrier carrierRedGun = new Carrier(13,1000);
+    Carrier carrierRedGun = new Carrier(25,1000);
     Carrier carrierBluePistol = new Carrier(2500,1100);
 
     carrierRedGun.addAircraft("F16");
@@ -12,5 +12,6 @@ public class AircraftMain {
     System.out.println(carrierRedGun);
     carrierRedGun.fill();
     System.out.println(carrierRedGun);
+    carrierRedGun.fight(carrierBluePistol);
   }
 }

@@ -3,9 +3,9 @@ package aircraftcarrier;
 public class Aircraft {
   private int currentAmmo = 0;
   private int maxAmmo;
-  int baseDmg;
-  int dmgDealt;
-  String typeOfPlane;
+  private int baseDmg;
+  private int dmgDealt;
+  private String typeOfPlane;
 
   public Aircraft(String typeOfPlane, int maxAmmo, int baseDmg) {
     this.typeOfPlane = typeOfPlane;
@@ -14,9 +14,10 @@ public class Aircraft {
     currentAmmo = 0;
   }
 
-  public int fight() {
+  public int planeAttack() {
+    dmgDealt = this.baseDmg * this.currentAmmo;
     this.currentAmmo = 0;
-    return dmgDealt = this.baseDmg * this.maxAmmo;
+    return dmgDealt;
   }
 
   public void refill(int refillAmmo) {
