@@ -58,12 +58,31 @@ public class Carrier {
     }
   }
 
-  public void fight (Carrier carrier){
+  public int getCarrierDmg(){
     int carrierDgmDealt = 0;
     for (int i = 0; i < this.carrier.size() ; i++) {
-        carrierDgmDealt += this.carrier.get(i).planeAttack();
+        carrierDgmDealt += this.carrier.get(i).getAircraftDmg();
     }
-    System.out.println(carrierDgmDealt);
+    return carrierDgmDealt;
+  }
+
+  public String getCarrierStatus (){
+    String status ="";
+    return status = "HP: " + this.carrierHealth + ", Aircraft count: " + this.carrier.size() + ", Ammo storage: " +
+            this.carrierAmmoStore + ", Total damage: " + this.getCarrierDmg() + "\n";
+  }
+
+  public String fight(Carrier carrier){
+    StringBuilder output = new StringBuilder("");
+    output.append(this.getCarrierStatus());
+    for (int i = 0; i <this.carrier.size() ; i++) {
+      output.append(this.carrier.get(i).getAircraftStatus());
+      this.carrier.get(i).setCurrentAmmoToNull();
+    }
+    carrier.carrierHealth = carrier.carrierHealth - this.getCarrierDmg();
+    output.append(carrier.getCarrierStatus());
+    String finalOutput = output.toString();
+    return finalOutput;
   }
 
   @Override

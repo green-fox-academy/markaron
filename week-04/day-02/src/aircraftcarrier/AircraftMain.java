@@ -8,10 +8,9 @@ public class AircraftMain {
     carrierRedGun.addAircraft("F16");
     carrierRedGun.addAircraft("F16");
     carrierRedGun.addAircraft("F35");
-
-    System.out.println(carrierRedGun);
     carrierRedGun.fill();
-    System.out.println(carrierRedGun);
-    carrierRedGun.fight(carrierBluePistol);
+
+    System.out.println(carrierRedGun.fight(carrierBluePistol));
+    System.out.println(carrierBluePistol.getCarrierStatus());
   }
 }

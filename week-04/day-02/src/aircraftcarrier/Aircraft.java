@@ -14,9 +14,13 @@ public class Aircraft {
     currentAmmo = 0;
   }
 
-  public int planeAttack() {
+  public void setCurrentAmmoToNull() {
     dmgDealt = this.baseDmg * this.currentAmmo;
     this.currentAmmo = 0;
+  }
+
+  public int getAircraftDmg(){
+    dmgDealt = this.baseDmg * this.currentAmmo;
     return dmgDealt;
   }
 
@@ -36,10 +40,10 @@ public class Aircraft {
     return this.typeOfPlane;
   }
 
-  public String getStatus() {
+  public String getAircraftStatus() {
     String status;
     return status = "Type " + this.typeOfPlane + ", Ammo: " + this.currentAmmo + ", Base Damage: " + this.baseDmg +
-            ", All damage: " + this.baseDmg * this.maxAmmo;
+            ", All damage: " + this.baseDmg * this.maxAmmo + "\n";
   }
 
   public boolean isPriority() {
