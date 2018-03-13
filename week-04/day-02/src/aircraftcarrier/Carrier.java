@@ -72,15 +72,18 @@ public class Carrier {
             this.carrierAmmoStore + ", Total damage: " + this.getCarrierDmg() + "\n";
   }
 
-  public String fight(Carrier carrier){
+  public String fight(Carrier otherCarrier){
     StringBuilder output = new StringBuilder("");
     output.append(this.getCarrierStatus());
+    otherCarrier.carrierHealth = otherCarrier.carrierHealth - this.getCarrierDmg();
     for (int i = 0; i <this.carrier.size() ; i++) {
       output.append(this.carrier.get(i).getAircraftStatus());
       this.carrier.get(i).setCurrentAmmoToNull();
     }
-    carrier.carrierHealth = carrier.carrierHealth - this.getCarrierDmg();
-    output.append(carrier.getCarrierStatus());
+    output.append(otherCarrier.getCarrierStatus());
+    if (otherCarrier.carrierHealth <= 0){
+      output.append("It's dead, Jim!");
+    }
     String finalOutput = output.toString();
     return finalOutput;
   }
