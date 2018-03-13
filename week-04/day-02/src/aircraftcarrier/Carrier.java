@@ -1,5 +1,4 @@
 package aircraftcarrier;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,28 +30,28 @@ public class Carrier {
       System.out.println("Your ship is out of ammo.");
     } else {
 
-      for (int i = 0; i < carrier.size(); i++) {
-        ammoNeeded += carrier.get(i).getMaxAmmo() - carrier.get(i).getCurrentAmmo();
+      for (Aircraft aCarrier : carrier) {
+        ammoNeeded += aCarrier.getMaxAmmo() - aCarrier.getCurrentAmmo();
       }
 
       if (ammoNeeded > this.carrierAmmoStore) {
-        for (int i = 0; i < carrier.size(); i++) {
-          if (carrier.get(i).isPriority()) {
-            carrier.get(i).refill(this.carrierAmmoStore);
-            this.carrierAmmoStore -= carrier.get(i).getCurrentAmmo();
+        for (Aircraft aCarrier : carrier) {
+          if (aCarrier.isPriority()) {
+            aCarrier.refill(this.carrierAmmoStore);
+            this.carrierAmmoStore -= aCarrier.getCurrentAmmo();
           }
         }
 
-        for (int i = 0; i < carrier.size(); i++) {
-          if (!carrier.get(i).isPriority()) {
-            carrier.get(i).refill(this.carrierAmmoStore);
-            this.carrierAmmoStore -= carrier.get(i).getCurrentAmmo();
+        for (Aircraft aCarrier : carrier) {
+          if (!aCarrier.isPriority()) {
+            aCarrier.refill(this.carrierAmmoStore);
+            this.carrierAmmoStore -= aCarrier.getCurrentAmmo();
           }
         }
       } else {
-        for (int i = 0; i < carrier.size(); i++) {
-          carrier.get(i).refill(this.carrierAmmoStore);
-          this.carrierAmmoStore -= carrier.get(i).getCurrentAmmo();
+        for (Aircraft aCarrier : carrier) {
+          aCarrier.refill(this.carrierAmmoStore);
+          this.carrierAmmoStore -= aCarrier.getCurrentAmmo();
         }
       }
     }
@@ -76,24 +75,19 @@ public class Carrier {
     StringBuilder output = new StringBuilder("");
     output.append(this.getCarrierStatus());
     otherCarrier.carrierHealth = otherCarrier.carrierHealth - this.getCarrierDmg();
+
     for (int i = 0; i <this.carrier.size() ; i++) {
       output.append(this.carrier.get(i).getAircraftStatus());
       this.carrier.get(i).setCurrentAmmoToNull();
     }
+
     output.append(otherCarrier.getCarrierStatus());
+
     if (otherCarrier.carrierHealth <= 0){
       output.append("It's dead, Jim!");
     }
+
     String finalOutput = output.toString();
     return finalOutput;
-  }
-
-  @Override
-  public String toString() {
-    return "Carrier{" +
-            "planesList=" + carrier +
-            ",\n carrierAmmoStore=" + carrierAmmoStore +
-            ", carrierHealth=" + carrierHealth +
-            '}';
   }
 }

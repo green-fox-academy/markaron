@@ -1,7 +1,7 @@
 package aircraftcarrier;
 
 public class Aircraft {
-  private int currentAmmo = 0;
+  private int currentAmmo;
   private int maxAmmo;
   private int baseDmg;
   private int dmgDealt;
@@ -36,10 +36,6 @@ public class Aircraft {
     }
   }
 
-  public String getType() {
-    return this.typeOfPlane;
-  }
-
   public String getAircraftStatus() {
     String status;
     return status = "Type " + this.typeOfPlane + ", Ammo: " + this.currentAmmo + ", Base Damage: " + this.baseDmg +
@@ -56,16 +52,5 @@ public class Aircraft {
 
   public int getMaxAmmo() {
     return maxAmmo;
-  }
-
-  @Override
-  public String toString() {
-    return "AIRCRAFT {" +
-            "currentAmmo=" + currentAmmo +
-            ", maxAmmo=" + maxAmmo +
-            ", baseDmg=" + baseDmg +
-            ", dmgDealt=" + dmgDealt +
-            ", typeOfPlane='" + typeOfPlane + '\'' +
-            '#';
   }
 }
