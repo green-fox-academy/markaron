@@ -6,7 +6,10 @@ public class AircraftMain {
     //List<Aircraft> myPlanes = new ArrayList<>();
     //Aircraft plane1 = new Aircraft();
     myCarrier.addAircraft("F16");
-
+    myCarrier.addAircraft("F13");
+    myCarrier.addAircraft("f35");
+    System.out.println(myCarrier);
+    myCarrier.fill();
     System.out.println(myCarrier);
   }
 }
