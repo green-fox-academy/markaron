@@ -54,6 +54,4 @@ public class CowsAndBulls {
       System.out.println("Bulls: " + bull + " Cows: " + cow);
     }
   }
-
-
 }
