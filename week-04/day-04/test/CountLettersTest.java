@@ -10,7 +10,7 @@ public class CountLettersTest {
 
   @Before
   public void setUp() throws Exception {
-    word = "albatrossa";
+    word = "albatross has many wing in the thunderstorm";
     countLetters = new CountLetters();
   }
 
@@ -22,5 +22,10 @@ public class CountLettersTest {
   @Test
   public void dictionaryWithCharCount(){
     assertEquals((Integer) 3,  countLetters.dictionaryWithCharCount(word).get('a'));
+  }
+
+  @Test
+  public void dictionaryWithCharCount_spaces(){
+    assertEquals((Integer) 6, countLetters.dictionaryWithCharCount(word).get(' '));
   }
 }
