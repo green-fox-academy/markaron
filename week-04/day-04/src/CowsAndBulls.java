@@ -29,11 +29,11 @@ public class CowsAndBulls {
   public static void numberGuesser(String guessedString){
     boolean gameON = true;
     Scanner input = new Scanner(System.in);
-
+    int numTries = 1;
     while (gameON){
       int bull = 0;
       int cow = 0;
-      System.out.println("Guess the four numbers, then press enter.");
+      System.out.println("ˇˇTry " + numTries + "ˇˇ Guess the four numbers, then press enter.");
       String playerGuess = input.nextLine();
 
       for (int i = 0; i <playerGuess.length() ; i++) {
@@ -51,6 +51,7 @@ public class CowsAndBulls {
         System.out.println("You WON! The number was: " + guessedString + " Your number was: " + playerGuess);
         gameON = false;
       }
+      numTries++;
       System.out.println("Bulls: " + bull + " Cows: " + cow);
     }
   }
