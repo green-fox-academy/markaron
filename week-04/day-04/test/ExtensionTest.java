@@ -26,6 +26,7 @@ public class ExtensionTest {
   public void testMaxOfThree_second(){
     assertEquals(10,extension.maxOfThree(5,10,6));
   }
+
   @Test
   public void testMaxOfThree_equals(){
     assertEquals(6,extension.maxOfThree(6,6,3));
@@ -38,12 +39,22 @@ public class ExtensionTest {
 
   @Test
   public void testMedian_four() {
-    assertEquals(5, extension.median(Arrays.asList(7,5,3,5)));
+    assertEquals(5,5, extension.median(Arrays.asList(7,5,3,5)));
   }
 
   @Test
   public void testMedian_five() {
-    assertEquals(3, extension.median(Arrays.asList(1,2,3,4,5)));
+    assertEquals(3,3, extension.median(Arrays.asList(1,2,3,4,5)));
+  }
+
+  @Test
+  public void testMedian_four_notDoubles (){
+    assertEquals(2.5,2.5, extension.median(Arrays.asList(1,2,3,4)));
+  }
+
+  @Test
+  public void testMedian_four_long (){
+    assertEquals(9.5,9.5, extension.median(Arrays.asList(100,20,3,4,21,6,7,111,9,10,11,12,5,1,15,0)));
   }
 
   @Test

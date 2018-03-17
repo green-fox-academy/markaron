@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -19,8 +20,9 @@ public class Extension {
     }
   }
 
-  int median(List<Integer> pool) {
-    return pool.get((pool.size()-1)/2);
+  double median(List<Integer> pool) {
+    Collections.sort(pool);
+    return pool.get((pool.size())/2);
   }
 
   boolean isVowel(char c) {
