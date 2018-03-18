@@ -1,5 +1,6 @@
 //import main.java.music.*;
-import  stringedinstrumentstwo.*;
+
+import stringedinstrumentstwo.*;
 
 public class AppMusic {
 
