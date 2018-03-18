@@ -9,12 +9,13 @@ public abstract class StringedInstruments extends Instruments {
   }
 
   @Override
-  public void play() {
-
+  public String play() {
+    return sound();
   }
 
-  public void sound(){
-
+  public String sound(){
+    String sound = "";
+    return sound;
   }
 
   public int getNumberOfStrings(){
