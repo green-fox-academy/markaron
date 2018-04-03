@@ -9,6 +9,6 @@ public class HelloRESTController {
 
   @RequestMapping(value = "/greeting")
   public Greeting greeting(@RequestParam(name = "name") String name){
-    return new Greeting(1,"Hi, " + name);
+    return new Greeting("Hi, " + name);
   }
 }
