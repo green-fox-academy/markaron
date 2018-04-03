@@ -8,13 +8,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Controller
-public class HelloWebController {
+public class HelloToAllTheWorld {
   AtomicLong id = new AtomicLong();
 
-  @RequestMapping("/web/greeting")
-  public String greeting(Model model, @RequestParam(name = "name") String name) {
+
+  @RequestMapping("web/greettheworld")
+  public String greetTheWorld(Model model, @RequestParam(name = "name") String name){
+    model.addAttribute("hello", new Greeting());
     model.addAttribute("name",  name);
     model.addAttribute("id", id.addAndGet(1));
-    return "greeting";
+    return "greettheworld";
+
   }
+
 }
