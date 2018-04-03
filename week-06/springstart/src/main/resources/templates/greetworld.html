@@ -5,10 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 
-
 <body>
 <div th:each="hellos : ${hellos}">
-    <p th:style="${color}" th:text="${hello}+' '+${name}+'! This site was loaded '+${id}+
+    <p th:style="${hello.getRandomLineStyle()}" th:text="${hello}+' '+${name}+'! This site was loaded '+${id}+
         ' times since last server start. '"></p>
 </div>
 </body>

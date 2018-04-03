@@ -1,6 +1,5 @@
 package com.greenfoxacademy.springstart.controllers;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class Greeting {
@@ -21,12 +20,22 @@ public class Greeting {
     this.content = toString();
   }
 
-  public long getId() {
-    return id;
+  public String getRandomLineStyle(){
+    String randColor;
+    return randColor = "color: rgb(" + randomColor() + "," + randomColor() + "," + randomColor() + "); " +
+            "font-size:"+randomSize() + "pt;";
   }
 
-  public String getContent() {
-    return content;
+  public String randomColor(){
+    Random random = new Random();
+    String randomColor = String.valueOf(random.nextInt(255));
+    return randomColor;
+  }
+
+  public String randomSize(){
+    Random random = new Random();
+    String randomSize = String.valueOf(random.nextInt(25)+8);
+    return randomSize;
   }
 
   public String[] getHellos(){

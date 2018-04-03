@@ -15,7 +15,6 @@ public class HelloToAllTheWorld {
 
   @RequestMapping("web/greettheworld")
   public String greetTheWorld(Model model, @RequestParam(name = "name") String name){
-    model.addAttribute("color", "color: rgb("+randomColor()+","+randomColor()+","+randomColor()+")");
     model.addAttribute("hello", new Greeting());
     model.addAttribute("hellos", greeting.getHellos());
     model.addAttribute("name",  name);
@@ -23,9 +22,5 @@ public class HelloToAllTheWorld {
     return "greetworld";
   }
 
-  public String randomColor(){
-    Random random = new Random();
-    String randomColor = String.valueOf(random.nextInt(255));
-    return randomColor;
-  }
+
 }
