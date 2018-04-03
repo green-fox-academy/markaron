@@ -15,13 +15,17 @@ public class HelloToAllTheWorld {
 
   @RequestMapping("web/greettheworld")
   public String greetTheWorld(Model model, @RequestParam(name = "name") String name){
-    model.addAttribute("color", "#A7C6D8");
+    model.addAttribute("color", "color: rgb("+randomColor()+","+randomColor()+","+randomColor()+")");
     model.addAttribute("hello", new Greeting());
     model.addAttribute("hellos", greeting.getHellos());
     model.addAttribute("name",  name);
     model.addAttribute("id", id.addAndGet(1));
     return "greetworld";
-
   }
 
+  public String randomColor(){
+    Random random = new Random();
+    String randomColor = String.valueOf(random.nextInt(255));
+    return randomColor;
+  }
 }
