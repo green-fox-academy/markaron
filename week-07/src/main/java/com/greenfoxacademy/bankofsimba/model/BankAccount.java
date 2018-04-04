@@ -35,6 +35,14 @@ public class BankAccount {
     return isGood;
   }
 
+  public void addToBalance(BankAccount other){
+    if(isKing){
+      other.balance += 100;
+    } else {
+      other.balance += 10;
+    }
+  }
+
   @Override
   public String toString() {
     return "BankAccount( " +

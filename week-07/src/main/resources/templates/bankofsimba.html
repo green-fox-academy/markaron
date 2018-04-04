@@ -2,11 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Thymeleaf Exercise #</title>
-    <link rel="stylesheet" th:href="@{/style.css}" />
-    <meta charset="utf-8" />
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
     <style>
         table, th, td {
-        border: 1px solid black;
+            border: 1px solid black;
             text-align: center;
         }
         th {
@@ -19,32 +19,35 @@
         tr:nth-child(odd) {
             background-color: ivory;
         }
-
         .king {
             color: darkred;
         }
-
     </style>
 </head>
 <body>
-<table style="width:100%">
-    <tr>
-        <th>Royalty</th>
-        <th>UserId</th>
-        <th>Name</th>
-        <th>Balance</th>
-        <th>Race</th>
-        <th>Side</th>
-    </tr>
-    <tr th:each="bankAccount : ${bank}">
-        <td th:class="${bankAccount.getKing()} ? king : notking" th:text="${bankAccount.getKing()}"></td>
-        <td th:text="${bankAccountStat.index+1}"></td>
-        <td th:text="${bankAccount.getName()}"></td>
-        <td th:text="${bankAccount.getBalance()}"></td>
-        <td th:text="${bankAccount.getAnimalType()}"></td>
-        <td th:text="${bankAccount.getGood()} ? 'Good Guy' : 'Bad Guy'"></td>
-    </tr>
-</table>
+<form>
+    <table style="width:100%">
+        <tr>
+            <th>Zebra Adder</th>
+            <th>Royalty</th>
+            <th>UserId</th>
+            <th>Name</th>
+            <th>Balance</th>
+            <th>Race</th>
+            <th>Side</th>
+        </tr>
+        <tr th:each="bankAccount : ${bank}">
+            <td class="button" th:action="${bankAccount.addToBalance(bankAccount)}">
+                <input type="submit" value="Hungry?"/></td>
+            <td th:class="${bankAccount.getKing()} ? king : notking" th:text="${bankAccount.getKing()}"></td>
+            <td th:text="${bankAccountStat.index+1}"></td>
+            <td th:text="${bankAccount.getName()}"></td>
+            <td th:text="${bankAccount.getBalance()}"></td>
+            <td th:text="${bankAccount.getAnimalType()}"></td>
+            <td th:text="${bankAccount.getGood()} ? 'Good Guy' : 'Bad Guy'"></td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>
 
