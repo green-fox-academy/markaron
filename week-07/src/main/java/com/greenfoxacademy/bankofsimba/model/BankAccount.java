@@ -2,10 +2,10 @@ package com.greenfoxacademy.bankofsimba.model;
 
 public class BankAccount {
   private String name;
-  private int balance;
+  private double balance;
   private String animalType;
 
-  public BankAccount(String name, int balance, String animalType) {
+  public BankAccount(String name, double balance, String animalType) {
     this.name = name;
     this.balance = balance;
     this.animalType = animalType;
@@ -13,10 +13,10 @@ public class BankAccount {
 
   @Override
   public String toString() {
-    return "BankAccount{" +
-            "name='" + name + '\'' +
-            ", balance=" + balance +
-            ", animalType='" + animalType + '\'' +
-            '}';
+    return "BankAccount( " +
+            "name = " + name +
+            ", balance = " + String.format("%.2f", balance) +
+            " Zebra , animal type = " + animalType +
+            ')';
   }
 }
