@@ -42,14 +42,7 @@
         <td th:text="${bankAccount.getName()}"></td>
         <td th:text="${bankAccount.getBalance()}"></td>
         <td th:text="${bankAccount.getAnimalType()}"></td>
-        <td><th:block th:switch="${bankAccount.getGood()}">
-            <div th:case="true">
-                Good guy
-            </div>
-            <div th:case="false">
-                Bad guy
-            </div>
-            </th:block></td>
+        <td th:text="${bankAccount.getGood()} ? 'Good Guy' : 'Bad Guy'"></td>
     </tr>
 </table>
 </body>
