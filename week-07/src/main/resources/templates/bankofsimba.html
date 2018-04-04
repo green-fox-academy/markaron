@@ -9,7 +9,7 @@
         border: 1px solid black;
             text-align: center;
         }
-        th:{
+        th {
             background-color: darkseagreen;
             color: aliceblue;
         }
@@ -19,21 +19,37 @@
         tr:nth-child(odd) {
             background-color: ivory;
         }
+
+        .king {
+            color: darkred;
+        }
+
     </style>
 </head>
 <body>
 <table style="width:100%">
     <tr>
+        <th>Royalty</th>
         <th>UserId</th>
         <th>Name</th>
         <th>Balance</th>
         <th>Race</th>
+        <th>Side</th>
     </tr>
     <tr th:each="bankAccount : ${bank}">
+        <td th:class="${bankAccount.getKing()} ? king : notking" th:text="${bankAccount.getKing()}"></td>
         <td th:text="${bankAccountStat.index+1}"></td>
         <td th:text="${bankAccount.getName()}"></td>
         <td th:text="${bankAccount.getBalance()}"></td>
         <td th:text="${bankAccount.getAnimalType()}"></td>
+        <td><th:block th:switch="${bankAccount.getGood()}">
+            <div th:case="true">
+                Good guy
+            </div>
+            <div th:case="false">
+                Bad guy
+            </div>
+            </th:block></td>
     </tr>
 </table>
 </body>

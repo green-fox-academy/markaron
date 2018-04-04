@@ -12,20 +12,17 @@ public class Bank {
     fill();
   }
 
-  public void addAccount(BankAccount bankAccount){
-    accountList.add(bankAccount);
-  }
-
   public List<BankAccount> getAccountList() {
     return accountList;
   }
 
   public void fill(){
-    accountList.add(new BankAccount("Shenzi", 10,"hyena"));
-    accountList.add(new BankAccount("Banzai", 30,"hyena"));
-    accountList.add(new BankAccount("Ed", 15,"hyena"));
-    accountList.add(new BankAccount("Timon", 10,"meerkat"));
-    accountList.add(new BankAccount("Bumba", 45,"warthog"));
+    accountList.add(new BankAccount(true,"Scar",666,"lion", false));
+    accountList.add(new BankAccount(false,"Shenzi", 10,"hyena",false));
+    accountList.add(new BankAccount(false,"Banzai", 30,"hyena",false));
+    accountList.add(new BankAccount(false,"Ed", 15,"hyena",false));
+    accountList.add(new BankAccount(false,"Timon", 10,"meerkat",true));
+    accountList.add(new BankAccount(false,"Bumba", 45,"warthog",true));
   }
 
   @Override
