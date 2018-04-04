@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bank test</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="UTF-8">
+</head>
+<body>
+<div th:each="bankAccount : ${bank}">
+    <p th:text="${bankAccount.getName}"/>
+</div>
+</body>
+</html>
