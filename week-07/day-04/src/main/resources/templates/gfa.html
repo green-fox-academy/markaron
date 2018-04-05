@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Greenfox Academy</title>
 </head>
 <body>
 <h2>This is the page for the Academy</h2>
+<h4 th:text="'The Academy has ' + ${counter} + 'students.'"></h4>
 <ul>
     <li>
         <a href="/gfa/list">Check out the students</a>

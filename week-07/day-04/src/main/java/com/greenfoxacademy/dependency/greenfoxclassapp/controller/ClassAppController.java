@@ -17,7 +17,8 @@ public class ClassAppController {
   StudentService studentService;
 
   @GetMapping("/gfa")
-  public String mainLink(){
+  public String mainLink(Model model){
+    model.addAttribute("counter",studentService.count());
     return "gfa";
   }
 
