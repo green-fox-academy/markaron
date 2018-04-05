@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class Links {
@@ -22,5 +23,13 @@ public class Links {
   public String colorBackGround(Model model){
     model.addAttribute("theColor", utilityService.randomColor());
     return "colored";
+  }
+
+  @GetMapping("/useful/email")
+  public String email(Model model, @RequestParam(name = "email") String email ){
+    model.addAttribute("isMailValid", utilityService.emailValidator(email));
+    model.addAttribute("email", email);
+    return "email";
+
   }
 }
