@@ -1,14 +1,12 @@
 package com.greenfoxacademy.dependency.greenfoxclassapp.controller;
 
 import com.greenfoxacademy.dependency.greenfoxclassapp.model.StudentService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ClassAppController {
@@ -34,8 +32,19 @@ public class ClassAppController {
   }
 
   @PostMapping("/saver")
-  public String getSaver(@ModelAttribute(name = "kid") String kidname, Model model){
+  public String getSaver(@ModelAttribute(name = "kid") String kidname){
     studentService.save(kidname);
     return "save";
+  }
+
+  @GetMapping("/gfa/check")
+  public String checkStudent(){
+    return "check";
+  }
+
+  @PostMapping("/checker")
+  public String checkTheStudent(@ModelAttribute(name = "kiddo") String kidname, Model model){
+    model.addAttribute("isResult", studentService.checkNameInList(kidname));
+    return "checkresult";
   }
 }
