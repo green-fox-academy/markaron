@@ -30,6 +30,11 @@ public class Links {
     model.addAttribute("isMailValid", utilityService.emailValidator(email));
     model.addAttribute("email", email);
     return "email";
+  }
 
+  @GetMapping("useful/encode")
+  public String encode(Model model, @RequestParam(name = "text") String text, @RequestParam(name = "num") int number){
+    model.addAttribute("encodedWord", utilityService.caesar(text,number));
+    return "encode";
   }
 }
