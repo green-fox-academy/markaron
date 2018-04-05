@@ -1,7 +1,6 @@
-package com.greenfoxacademy.dependency.controller;
+package com.greenfoxacademy.dependency.UtilityService.controller;
 
-import com.greenfoxacademy.dependency.model.UtilityService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
+import com.greenfoxacademy.dependency.UtilityService.model.UtilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,5 +35,12 @@ public class Links {
   public String encode(Model model, @RequestParam(name = "text") String text, @RequestParam(name = "num") int number){
     model.addAttribute("encodedWord", utilityService.caesar(text,number));
     return "encode";
+  }
+
+
+  @GetMapping("useful/decode")
+  public String decode(Model model, @RequestParam(name = "text") String text, @RequestParam(name = "num") int number){
+    model.addAttribute("decodedWord", utilityService.caesar(text,number-1));
+    return "decode";
   }
 }

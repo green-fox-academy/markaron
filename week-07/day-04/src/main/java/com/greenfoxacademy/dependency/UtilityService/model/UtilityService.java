@@ -1,4 +1,4 @@
-package com.greenfoxacademy.dependency.model;
+package com.greenfoxacademy.dependency.UtilityService.model;
 
 import org.springframework.stereotype.Service;
 
