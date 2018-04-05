@@ -2,7 +2,7 @@ package com.greenfoxacademy.dependency.Color;
 
 public class GreenColor implements MyColor {
   @Override
-  public void printColor() {
-    System.out.println("It is green in color....");
+  public String printColor() {
+    return "It is green in color....";
   }
 }
