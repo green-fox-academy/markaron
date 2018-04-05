@@ -1,5 +1,6 @@
 package com.greenfoxacademy.dependency;
 
+import com.greenfoxacademy.dependency.Color.RedColor;
 import com.greenfoxacademy.dependency.hellobeanworld.Printer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,6 +13,9 @@ public class DependencyApplication implements CommandLineRunner{
 	@Autowired
 	Printer printer;
 
+	@Autowired
+	RedColor redColor;
+
 	public static void main(String[] args) {
 		SpringApplication.run(DependencyApplication.class, args);
 	}
@@ -19,5 +23,6 @@ public class DependencyApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		printer.log("hello");
+		redColor.printColor();
 	}
 }
