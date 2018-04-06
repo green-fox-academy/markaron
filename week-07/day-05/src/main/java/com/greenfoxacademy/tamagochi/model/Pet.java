@@ -1,10 +1,7 @@
 package com.greenfoxacademy.tamagochi.model;
 
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
-@Service
 public class Pet {
   private String name;
   private List<String> trick;
