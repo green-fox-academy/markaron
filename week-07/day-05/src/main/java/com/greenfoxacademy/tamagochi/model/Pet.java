@@ -1,0 +1,21 @@
+package com.greenfoxacademy.tamagochi.model;
+
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class Pet {
+  private String name;
+  private List<String> trick;
+  private String food;
+  private String drink;
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+}
