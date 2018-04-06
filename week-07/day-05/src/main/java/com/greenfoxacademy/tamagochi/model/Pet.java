@@ -8,6 +8,10 @@ public class Pet {
   private String food;
   private String drink;
 
+  public Pet(String name) {
+    this.name = name;
+  }
+
   public String getName() {
     return name;
   }

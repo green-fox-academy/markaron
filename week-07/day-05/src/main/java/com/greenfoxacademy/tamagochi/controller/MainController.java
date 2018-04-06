@@ -1,5 +1,6 @@
 package com.greenfoxacademy.tamagochi.controller;
 
+import com.greenfoxacademy.tamagochi.db.PetDb;
 import com.greenfoxacademy.tamagochi.model.Pet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MainController {
 
   @Autowired
-  Pet pet;
+  PetDb pets;
 
   @GetMapping("/")
   public String main(@RequestParam (name = "petname", required = false) String petName, Model model){
@@ -33,8 +34,8 @@ public class MainController {
 
   @PostMapping("/login")
   public String loginName(@ModelAttribute(name = "petName") String petName, Model model){
-    pet.setName(petName);
-    model.addAttribute("petName",pet.getName());
+    pets.addPet(new Pet(petName));
+    model.addAttribute("petName", petName);
     return "redirect:/?petname=" + petName;
   }
 }

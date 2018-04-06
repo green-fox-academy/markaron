@@ -1,10 +1,12 @@
 package com.greenfoxacademy.tamagochi.db;
 
 import com.greenfoxacademy.tamagochi.model.Pet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class PetDb {
 
   public final List<Pet> PETS;
