@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Pet {
   private String name;
-  private List<String> trick;
+  private List<Trick> trick;
   private String food;
   private String drink;
 
