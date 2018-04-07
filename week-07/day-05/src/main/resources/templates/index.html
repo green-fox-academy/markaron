@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Status</title>
+    <style>
+        div {color: green; font-family: Candara; font-size: 20px;}
+    </style>
 </head>
 <body>
-<img src="jawa.jpg" height="200" align="center">
-<a th:text="'Your pets name is ' + ${petName} + '. Great choice!!!!'" th:align="center"></a>
-
-<a href="/login">Login</a>
+<div align="center">
+    <img src="jawa.jpg" height="200"></br>
+    <a th:text="'Your pets name is ' + ${petName} + '. Great choice!!!!'"></a></br>
+    <a href="/login">Login</a></br>
+    <a href="/nutritionStore">Nutrition Store</a></br>
+</div>
 </body>
 </html>

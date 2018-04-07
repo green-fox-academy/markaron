@@ -15,6 +15,7 @@ public class MainController {
 
   @Autowired
   PetDb pets;
+  String nameOfPet = "";
 
   @GetMapping("/")
   public String main(@RequestParam (name = "petname", required = false) String petName, Model model){
@@ -24,12 +25,18 @@ public class MainController {
     } else {
       model.addAttribute("petName", pets.getPet(petName));
     }
+    nameOfPet = petName;
     return "index";
   }
 
   @GetMapping("/login")
   public String loginPage(){
     return "login";
+  }
+
+  @GetMapping("/nutritionStore")
+  public String nutStore(){
+    return "redirect:/nutritionStore?petName=" + nameOfPet;
   }
 
   @PostMapping("/login")
