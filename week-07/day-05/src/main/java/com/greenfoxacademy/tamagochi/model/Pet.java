@@ -1,5 +1,6 @@
 package com.greenfoxacademy.tamagochi.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pet {
@@ -10,6 +11,15 @@ public class Pet {
 
   public Pet(String name) {
     this.name = name;
+    trick = new ArrayList<>();
+  }
+
+  public String getTrick(){
+    if(trick.size() != 0){
+      return trick.toString();
+    } else {
+      return  " Your pet is stupid";
+    }
   }
 
   public String getName() {

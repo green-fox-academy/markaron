@@ -18,12 +18,12 @@ public class MainController {
 
   @GetMapping("/")
   public String main(@RequestParam (name = "petname", required = false) String petName, Model model){
-    if(pet.getName() == null){
-      pet.setName("Mr.Fox");
+    if(pets.getSize() == 0){
+      petName = " Mr. Fox ";
+      model.addAttribute("petName", petName);
     } else {
-      pet.setName(petName);
+      model.addAttribute("petName", pets.getPet(petName));
     }
-    model.addAttribute("petName", pet.getName());
     return "index";
   }
 

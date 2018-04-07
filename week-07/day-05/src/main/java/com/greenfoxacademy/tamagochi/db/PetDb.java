@@ -19,6 +19,20 @@ public class PetDb {
     PETS.add(pet);
   }
 
+  public String getPet(String name){
+    String result = "";
+    for (int i = 0; i < PETS.size(); i++) {
+      if(PETS.get(i).getName().equals(name)){
+        result = PETS.get(i).getName() + ". " +  PETS.get(i).getTrick();
+      }
+    }
+  return result;
+  }
+
+  public int getSize(){
+    return PETS.size();
+  }
+
   public List<Pet> getPETS() {
     return PETS;
   }
