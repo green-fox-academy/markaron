@@ -7,12 +7,12 @@
 <body>
 
 <h2>Feed your starving jawa!</h2>
-<p>Select from the drop-down list:</p>
+<p>Select from the drop-down list</p>
 
 <form >
     <h3 th:text="'Your pets name is ' + ${petName} + '. Great choice!!!!'"></h3>
-    <select th:each="beer : ${foodDb}">
-        <option value="beer"></option>
+    <select name="food">
+        <option th:each="food : ${foodDb}"></option>
     </select>
     <br><br>
     <input type="submit">
