@@ -12,10 +12,13 @@
 <form >
     <h3 th:text="'Your pets name is ' + ${petName} + '. Great choice!!!!'"></h3>
     <select name="food">
-        <option th:each="food : ${foodDb}"></option>
+        <option value=""> --- </option>
+        <option th:each="food : ${foodDb}"
+                th:value="${food.getFoodType()}"
+                th:text="${food.getFoodType()}" />
     </select>
     <br><br>
-    <input type="submit">
+    <input type="submit" value="Submit">
     <a href="/">Back to main</a>
 </form>
 </body>
