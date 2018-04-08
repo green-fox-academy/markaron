@@ -1,5 +1,6 @@
 package com.greenfoxacademy.tamagochi.controller;
 
+import com.greenfoxacademy.tamagochi.db.FoodDb;
 import com.greenfoxacademy.tamagochi.db.PetDb;
 import com.greenfoxacademy.tamagochi.model.Pet;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ public class MainController {
 
   @Autowired
   PetDb pets;
+  @Autowired
+  FoodDb food;
+
   String nameOfPet = "";
 
   @GetMapping("/")
@@ -35,9 +39,15 @@ public class MainController {
   }
 
   @GetMapping("/nutritionStore")
-  public String nutStore(){
-    return "redirect:/nutritionStore?petName=" + nameOfPet;
+  public String nutStore(@ModelAttribute(name = "petName") String petName, Model model){
+    petName = nameOfPet;
+    model.addAttribute("petName", petName);
+    model.addAttribute("foodDb",food.findAll());
+    return "nutritionStore";
   }
+
+  //@PostMapping
+  //itt adom meg mit kap enni az adott pet
 
   @PostMapping("/login")
   public String loginName(@ModelAttribute(name = "petName") String petName, Model model){
