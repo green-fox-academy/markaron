@@ -1,12 +1,12 @@
 public class Card {
+  public static int J = 11;
+  public static int Q = 12;
+  public static int K = 13;
+  public static int A = 14;
+
 
   private int value;
   private String color;
-
-  public static int A = 14;
-  public static int K = 13;
-  public static int Q = 12;
-  public static int J = 11;
 
   public Card() {
   }
@@ -23,6 +23,4 @@ public class Card {
   public String getColor() {
     return color;
   }
-
-
 }
