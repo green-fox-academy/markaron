@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<form action="#" th:action="@{/todo/adder}" method="post">
+    <label for="todoId">What to do?:</label>
+    <input type="text" id="todoId" name="todoDesc"/>
+    <input type="submit" value="Nyomd meg a gombot, kapsz egy liba combot"/>
+    <a href="/todo">Back to main</a>
+</form>
+</body>
+</html>
