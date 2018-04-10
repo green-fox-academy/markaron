@@ -14,9 +14,8 @@ public class TodoController {
   Repository repo;
 
   @GetMapping(value = {"/todo", "/todo/list"})
-  @ResponseBody
   public String list(Model model){
-    return "This is my first todo";
+    return "todo";
   }
 }
 
