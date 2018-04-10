@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo</title>
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        th {
+            background-color: darkseagreen;
+            color: aliceblue;
+        }
+
+        tr:nth-child(even) {
+            background-color: khaki;
+        }
+
+        tr:nth-child(odd) {
+            background-color: ivory;
+        }
+    </style>
+</head>
+<body>
+
+<h1 th:text="'Todos for today:'"></h1>
+<form>
+    <table style="width:100%">
+        <tr>
+            <th>Id</th>
+            <th>What has to be done?</th>
+            <th>Urgent</th>
+            <th>is it done?</th>
+        </tr>
+        <tr th:each="todo : ${todos}">
+            <td th:text="${todo.getId()}"></td>
+            <td th:text="${todo.getTitle()}"></td>
+            <td th:text="${todo.isUrgent()}"></td>
+            <td th:text="${todo.isDone()}"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
