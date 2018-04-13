@@ -24,12 +24,28 @@ public class Post {
     this.url = url;
   }
 
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
   public int getVote() {
     return vote;
   }
 
   public void setVote(int vote) {
     this.vote = vote;
+  }
+
+  public void increaseVote(){
+    vote ++;
+  }
+
+  public void decreaseVote(){
+    vote --;
   }
 
   public String getMassage() {

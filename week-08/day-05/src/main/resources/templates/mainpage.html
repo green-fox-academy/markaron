@@ -8,17 +8,26 @@
 </head>
 <body>
 <h1>Trending</h1>
+<h2 align="center">
+    <a class="label label-success" href="/reddit/addpost">Post something awesome</a>
+</h2>
 <div class="container">
     <div class="row">
         <div class="col-sm">
-            <h2 align="center">
-                <a class="label label-success" href="/reddit/addpost">Post something awesome</a>
-            </h2>
+
             <table class="table">
                 <tbody>
                 <tr th:each="post : ${posts}">
                     <td th:text="${post.getVote()}"></td>
-                    <a th:text="${post.getMassage()}" th:href="${post.getUrl()}"></a>
+                    <td>
+                        <a class="label label-info" th:href="'/' + ${post.getId()} + '/upvote'">⇧</a>
+                    </td>
+                    <td>
+                        <a class="label label-info" th:href="'/' + ${post.getId()} + '/downvote'">⇩</a>
+                    </td>
+                    <td>
+                        <a th:text="${post.getMassage()}" th:href="${post.getUrl()}" th:target="_blank"></a>
+                    </td>
                 </tr>
                 </tbody>
             </table>
