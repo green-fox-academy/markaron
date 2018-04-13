@@ -7,31 +7,28 @@
     <title>Reddit</title>
 </head>
 <body>
-<h1>Trending</h1>
+<h1 align="center">Reddit</h1>
 <h2 align="center">
     <a class="label label-success" href="/reddit/addpost">Post something awesome</a>
 </h2>
 <div class="container">
     <div class="row">
         <div class="col-sm">
-
-            <table class="table">
-                <tbody>
-                <tr th:each="post : ${posts}">
-                    <td th:text="${post.getVote()}"></td>
-                    <td>
-                        <a class="label label-info" th:href="'/' + ${post.getId()} + '/upvote'">⇧</a>
-                    </td>
-                    <td>
-                        <a class="label label-info" th:href="'/' + ${post.getId()} + '/downvote'">⇩</a>
-                    </td>
-                    <td>
-                        <a th:text="${post.getMassage()}" th:href="${post.getUrl()}" th:target="_blank"></a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+        <table class="table table-hover">
+            <tr th:each="post : ${posts}">
+                <td th:text="${post.getVote()}"></td>
+                <td>
+                    <a class="label label-info" th:href="'/' + ${post.getId()} + '/upvote'">⇧</a>
+                </td>
+                <td>
+                    <a class="label label-info" th:href="'/' + ${post.getId()} + '/downvote'">⇩</a>
+                </td>
+                <td>
+                    <a th:text="${post.getMassage()}" th:href="${post.getUrl()}" th:target="_blank"></a>
+                </td>
+            </tr>
+        </table>
+    </div>
     </div>
 </div>
 
