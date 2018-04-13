@@ -18,7 +18,7 @@ public class Post {
   public Post() {
   }
 
-  public Post(int vote, String massage, String url) {
+  public Post(String massage, String url) {
     this.vote = 0;
     this.massage = massage;
     this.url = url;

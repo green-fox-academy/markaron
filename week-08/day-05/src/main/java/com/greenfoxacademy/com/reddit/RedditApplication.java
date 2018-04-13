@@ -19,6 +19,6 @@ public class RedditApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		
+
 	}
 }
