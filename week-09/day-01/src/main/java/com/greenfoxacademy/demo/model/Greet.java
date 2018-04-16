@@ -1,17 +1,17 @@
 package com.greenfoxacademy.demo.model;
 
 public class Greet {
-  private String massage;
+  private String welcome_message;
 
-  public Greet(String massage) {
-    this.massage = massage;
+  public Greet(String message) {
+    this.welcome_message = message;
   }
 
-  public String getMassage() {
-    return massage;
+  public String getWelcome_message() {
+    return welcome_message;
   }
 
-  public void setMassage(String massage) {
-    this.massage = massage;
+  public void setWelcome_message(String welcome_message) {
+    this.welcome_message = welcome_message;
   }
 }
