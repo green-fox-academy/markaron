@@ -1,14 +1,8 @@
 package com.greenfoxacademy.demo.controller;
 
 
-import com.greenfoxacademy.demo.model.Append;
-import com.greenfoxacademy.demo.model.Doubling;
-import com.greenfoxacademy.demo.model.ErrorObject;
-import com.greenfoxacademy.demo.model.Greet;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.greenfoxacademy.demo.model.*;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TheRestController {
@@ -37,5 +31,18 @@ public class TheRestController {
   @GetMapping("/appenda/{appendable}")
   public Object append(@PathVariable(value = "appendable", required = false) String word){
     return new Append(word+"a");
+  }
+
+  @PostMapping("/dountil/{what}")
+  public Object doUntil(@PathVariable(value = "what", required = false) String what , DoUntil myObject){
+    if(what.equals("sum")){
+      myObject = new DoUntil(7);
+      return new DoUntilSum(myObject.getUntil());
+    } else if (what.equals("factor")){
+      myObject = new DoUntil(4);
+      return new DoUntilFactor(myObject.getUntil());
+    } else {
+      return new ErrorObject("Please provide a number!");
+    }
   }
 }
