@@ -14,6 +14,7 @@ public class WarehouseController {
 
   @GetMapping(value = "/warehouse")
   public String mainPage(Model model){
+    model.addAttribute("items",repository.findDistinctByItemName());
     model.addAttribute("cloth", repository.findAll());
     return "warehouse";
   }

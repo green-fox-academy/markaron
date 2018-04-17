@@ -6,6 +6,12 @@
 </head>
 <body>
 <h1>Green Fox Fashion Web Store</h1>
+<select th:field="${items}">
+    <option th:each=" item : ${items}"
+            th:value="${item}"
+            th:text="${item}">
+    </option>
+</select>
 <table>
     <tr>
         <th>Item name</th>
