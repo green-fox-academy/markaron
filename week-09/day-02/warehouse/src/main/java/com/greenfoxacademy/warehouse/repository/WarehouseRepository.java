@@ -9,4 +9,7 @@ import java.util.List;
 public interface WarehouseRepository extends CrudRepository<Warehouse, Long>{
   @Query("select distinct c.itemName from Warehouse c")
   List<String> findDistinctByItemName();
+
+  @Query("select distinct a.size from Warehouse a")
+  List<String> findDistinctBySize();
 }
