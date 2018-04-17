@@ -1,6 +1,5 @@
 package com.greenfoxacademy.demo.controller;
 
-
 import com.greenfoxacademy.demo.model.*;
 import org.springframework.web.bind.annotation.*;
 
