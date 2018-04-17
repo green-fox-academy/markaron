@@ -28,4 +28,18 @@ public class DoublingTest {
       .andExpect(jsonPath("$.received").value(5))
       .andExpect(jsonPath("$.result").value(10));
   }
+
+  @Test
+  public void doublingError() throws Exception {
+    mockMvc
+      .perform(get("/doubling/?input="))
+      .andExpect(status().isOk())
+      .andExpect(jsonPath("$.error").value("Please provide an input!"));
+  }
+
+  @Test
+  public void greeter() throws Exception {
+    mockMvc
+      .perform(get("/greeter"));
+  }
 }
