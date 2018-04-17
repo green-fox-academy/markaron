@@ -3,6 +3,7 @@ package com.greenfoxacademy.demo.model;
 public class DoUntil {
   private Integer until;
   private Integer result;
+  
 
   public DoUntil() {
   }
