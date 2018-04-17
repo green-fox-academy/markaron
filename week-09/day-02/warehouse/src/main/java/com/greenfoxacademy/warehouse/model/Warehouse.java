@@ -1,20 +1,31 @@
 package com.greenfoxacademy.warehouse.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Clothes {
+public class Warehouse {
 
+  @GeneratedValue(strategy = GenerationType.AUTO)
   @Id
   private Long id;
   private String itemName;
   private String manufacturer;
   private String category;
   private String size;
-  private float price;
+  private Float unitPrice;
 
-  public Clothes() {
+  public Warehouse() {
+  }
+
+  public float getUnitPrice() {
+    return unitPrice;
+  }
+
+  public void setUnitPrice(float unitPrice) {
+    this.unitPrice = unitPrice;
   }
 
   public Long getId() {
@@ -57,11 +68,4 @@ public class Clothes {
     this.size = size;
   }
 
-  public float getPrice() {
-    return price;
-  }
-
-  public void setPrice(float price) {
-    this.price = price;
-  }
 }

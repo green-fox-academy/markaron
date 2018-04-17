@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+</head>
+<body>
+<h1>Green Fox Fashion Web Store</h1>
+<table>
+    <tr>
+        <th>Item name</th>
+        <th>Manufacturer</th>
+        <th>Category</th>
+        <th>Size</th>
+        <th>Unit price</th>
+    </tr>
+    <tr th:each="dress : ${cloth}">
+        <td th:text="${dress.getItemName()}"></td>
+        <td th:text="${dress.getManufacturer()}"></td>
+        <td th:text="${dress.getCategory()}"></td>
+        <td th:text="${dress.getSize()}"></td>
+        <td th:text="${dress.getUnitPrice()}"></td>
+    </tr>
+</table>
+</body>
+</html>
