@@ -23,7 +23,7 @@ public class DoublingTest {
   @Test
   public void doubling() throws Exception {
     mockMvc
-      .perform(get("/doubling/?input=5"))
+      .perform(get("/doubling").param("input","5"))
       .andExpect(status().isOk())
       .andExpect(jsonPath("$.received").value(5))
       .andExpect(jsonPath("$.result").value(10));
@@ -40,6 +40,24 @@ public class DoublingTest {
   @Test
   public void greeter() throws Exception {
     mockMvc
-      .perform(get("/greeter"));
+      .perform(get("/greeter/?name=Luke&title=hero"))
+      .andExpect(status().isOk())
+      .andExpect(jsonPath("$.welcome_message").value("Oh, hi there Luke, my dear hero!"));
+  }
+
+  @Test
+  public void greeterParam() throws Exception {
+    mockMvc
+      .perform(get("/greeter").param("name", "Joe").param("title","béna"))
+      .andExpect(status().isOk())
+      .andExpect(jsonPath("$.welcome_message").value("Oh, hi there Joe, my dear béna!"));
+  }
+
+  @Test
+  public void greeterError() throws Exception {
+    mockMvc
+      .perform(get("/greeter").param("title","student"))
+      .andExpect(status().isOk())
+      .andExpect(jsonPath("$.error").value("Please provide a name!"));
   }
 }
