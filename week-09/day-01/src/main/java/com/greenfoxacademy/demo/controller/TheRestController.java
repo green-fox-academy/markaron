@@ -33,12 +33,10 @@ public class TheRestController {
   }
 
   @PostMapping("/dountil/{what}")
-  public Object doUntil(@PathVariable(value = "what", required = false) String what , DoUntil myObject){
+  public Object doUntil(@PathVariable(value = "what", required = false) String what ,@RequestBody DoUntil myObject){
     if(what.equals("sum")){
-      myObject = new DoUntil(7);
       return new DoUntilSum(myObject.getUntil());
     } else if (what.equals("factor")){
-      myObject = new DoUntil(4);
       return new DoUntilFactor(myObject.getUntil());
     } else {
       return new ErrorObject("Please provide a number!");

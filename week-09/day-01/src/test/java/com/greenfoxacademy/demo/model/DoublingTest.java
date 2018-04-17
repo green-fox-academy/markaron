@@ -5,11 +5,12 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -54,10 +55,36 @@ public class DoublingTest {
   }
 
   @Test
-  public void greeterError() throws Exception {
+  public void greeterErrorNoName() throws Exception {
     mockMvc
       .perform(get("/greeter").param("title","student"))
       .andExpect(status().isOk())
       .andExpect(jsonPath("$.error").value("Please provide a name!"));
+  }
+
+  @Test
+  public void greeterErrorNoTitle() throws Exception {
+    mockMvc
+      .perform(get("/greeter").param("name","Vader"))
+      .andExpect(status().isOk())
+      .andExpect(jsonPath("$.error").value("Please provide a title!"));
+  }
+
+  @Test
+  public void append() throws Exception {
+    mockMvc
+      .perform(get("/appenda/{appendable}", "kuty"))
+      .andExpect(status().isOk())
+      .andExpect(jsonPath("$.appended").value("kutya"));
+  }
+
+  @Test
+  public void doUntil() throws Exception {
+    mockMvc
+      .perform(post("/dountil/{what}","sum")
+          .contentType(MediaType.APPLICATION_JSON)
+          .content("{\"until\": 5}"))
+      .andExpect(status().isOk())
+      .andExpect(jsonPath("$.result").value(15));
   }
 }
