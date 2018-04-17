@@ -28,18 +28,22 @@ public class TheRestController {
   }
 
   @GetMapping("/appenda/{appendable}")
-  public Object append(@PathVariable(value = "appendable", required = false) String word){
-    return new Append(word+"a");
+  public Object append(@PathVariable(value = "appendable", required = false) String word) {
+    return new Append(word + "a");
   }
 
   @PostMapping("/dountil/{what}")
-  public Object doUntil(@PathVariable(value = "what", required = false) String what ,@RequestBody DoUntil myObject){
-    if(what.equals("sum")){
-      return new DoUntilSum(myObject.getUntil());
-    } else if (what.equals("factor")){
-      return new DoUntilFactor(myObject.getUntil());
-    } else {
-      return new ErrorObject("Please provide a number!");
-    }
+  public Object doUntil(@PathVariable(value = "what", required = false) String what, @RequestBody(required = false)
+    DoUntil myObject) {
+    if (myObject != null) {
+      if (what.equals("sum")) {
+        return new DoUntilSum(myObject.getUntil());
+      } else if (what.equals("factor")) {
+        return new DoUntilFactor(myObject.getUntil());
+      }
+      } else {
+        return new ErrorObject("Please provide a number!");
+      }
+    return null;
   }
 }

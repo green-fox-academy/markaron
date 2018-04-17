@@ -79,12 +79,32 @@ public class DoublingTest {
   }
 
   @Test
-  public void doUntil() throws Exception {
+  public void doUntilSum() throws Exception {
     mockMvc
       .perform(post("/dountil/{what}","sum")
           .contentType(MediaType.APPLICATION_JSON)
           .content("{\"until\": 5}"))
       .andExpect(status().isOk())
       .andExpect(jsonPath("$.result").value(15));
+  }
+
+  @Test
+  public void doUntilFunction() throws Exception {
+    mockMvc
+      .perform(post("/dountil/{what}", "factor")
+          .contentType(MediaType.APPLICATION_JSON)
+          .content("{\"until\": 5}"))
+      .andExpect(status().isOk())
+      .andExpect(jsonPath("$.result").value(120));
+  }
+
+  @Test
+  public void doUntilError() throws Exception {
+    mockMvc
+      .perform(post("/dountil/sum")
+          .contentType(MediaType.APPLICATION_JSON))
+      .andExpect(status().isOk())
+      .andExpect(jsonPath("$.error").value("Please provide a number!"));
+
   }
 }
