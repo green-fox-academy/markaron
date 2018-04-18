@@ -15,21 +15,22 @@ public class WarehouseController {
   WarehouseRepository repository;
 
   @GetMapping(value = "/warehouse")
-  public String mainPage(Model model){
-    model.addAttribute("items",repository.findDistinctByItemName());
-    model.addAttribute("sizes",repository.findDistinctBySize());
+  public String mainPage(Model model) {
+    model.addAttribute("items", repository.findDistinctByItemName());
+    model.addAttribute("sizes", repository.findDistinctBySize());
     model.addAttribute("cloth", repository.findAll());
     return "warehouse";
   }
 
   @PostMapping(value = "/warehouse/summary")
-  public String summary(@ModelAttribute(name = "item")String itemName,
+  public String summary(@ModelAttribute(name = "item") String itemName,
                         @ModelAttribute(name = "size") String sizeNum,
                         @ModelAttribute(name = "amount") int amount,
-                        Model model){
-    model.addAttribute("itemName",itemName);
-    model.addAttribute("sizeNum",sizeNum);
-    model.addAttribute("amount",amount);
+                        Model model) {
+    model.addAttribute("itemName", itemName);
+    model.addAttribute("sizeNum", sizeNum);
+    model.addAttribute("amount", amount);
+    model.addAttribute("quantity", repository.findByItemNameAndSize(itemName,sizeNum));
     return "summary";
   }
 }
