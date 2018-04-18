@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-public interface WarehouseRepository extends CrudRepository<Warehouse, Long>{
+public interface WarehouseRepository extends CrudRepository<Warehouse, Long> {
   @Query("select distinct c.itemName from Warehouse c")
   List<String> findDistinctByItemName();
 
@@ -17,5 +17,13 @@ public interface WarehouseRepository extends CrudRepository<Warehouse, Long>{
 
   @Query("select c.unitPrice from Warehouse c where c.itemName like :itemName and c.size like :itemSize")
   int findByItemNameAndSize(@Param("itemName") String itemNameInput,
-                                     @Param("itemSize") String itemSizeInput);
+                            @Param("itemSize") String itemSizeInput);
+
+
+  @Query("select c.manufacturer from Warehouse c where c.size like :itemSize and c.itemName like :itemName")
+  String findBySizeAndItemName(@Param("itemSize") String itemSizeInput,
+                               @Param("itemName") String itemNameInput);
+
+  @Query("select c.category from Warehouse c where c.itemName like :itemName")
+  List<String> findDistinctFirstByItemName(@Param("itemName") String itemNameInput);
 }

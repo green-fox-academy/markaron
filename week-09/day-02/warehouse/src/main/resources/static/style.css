@@ -1,0 +1,27 @@
+body {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: darkblue;
+    text-align: center;
+}
+
+table, th, td {
+    text-align: center;
+    font-size: large;
+}
+
+th {
+    background-color: darkblue;
+    color: aliceblue;
+}
+
+tr:nth-child(even) {
+    background-color: khaki;
+}
+
+tr:nth-child(odd) {
+    background-color: ivory;
+}
