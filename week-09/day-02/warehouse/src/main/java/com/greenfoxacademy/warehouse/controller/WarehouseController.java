@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.persistence.GeneratedValue;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,13 +45,5 @@ public class WarehouseController {
       model.addAttribute("subTotal", amount * warehouse.getUnitPrice());
       return "summary";
     }
-  }
-
-  @GetMapping(value = "/warehouse/query")
-  public List<Warehouse> query(@PathVariable(value = "price") int price,
-                               @PathVariable(value = "type") String type) {
-    List<Warehouse> warehouseList = new ArrayList<>();
-
-    return warehouseList;
   }
 }

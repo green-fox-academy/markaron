@@ -18,11 +18,12 @@ public interface WarehouseRepository extends CrudRepository<Warehouse, Long> {
   List<Warehouse> findByItemNameAndSize(@Param("itemName") String itemNameInput,
                             @Param("itemSize") String itemSizeInput);
 
+  @Query("select c from Warehouse c where c.unitPrice like :unitPrice")
+  List<Warehouse> findByUnitPriceEquals(@Param("unitPrice") float unitPrice);
 
-  @Query("select c.manufacturer from Warehouse c where c.size like :itemSize and c.itemName like :itemName")
-  String findBySizeAndItemName(@Param("itemSize") String itemSizeInput,
-                               @Param("itemName") String itemNameInput);
+  @Query("select c from Warehouse c where c.unitPrice < :unitPrice")
+  List<Warehouse> findByUnitPriceIsLessThan(@Param("unitPrice") float unitPrice);
 
-  @Query("select c.category from Warehouse c where c.itemName like :itemName")
-  List<String> findDistinctFirstByItemName(@Param("itemName") String itemNameInput);
+  @Query("select c from Warehouse c where c.unitPrice > :unitPrice")
+  List<Warehouse> findByUnitPriceIsGreaterThan(@Param("unitPrice") float unitPrice);
 }
