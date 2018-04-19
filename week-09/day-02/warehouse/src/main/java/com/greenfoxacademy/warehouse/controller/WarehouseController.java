@@ -25,6 +25,7 @@ public class WarehouseController {
     model.addAttribute("items", repository.findDistinctByItemName());
     model.addAttribute("sizes", repository.findDistinctBySize());
     model.addAttribute("cloth", repository.findAll());
+    //model.addAttribute("error", "The selected item is out of stock.");
     return "warehouse";
   }
 
@@ -33,19 +34,23 @@ public class WarehouseController {
                         @ModelAttribute(name = "size") String sizeNum,
                         @ModelAttribute(name = "amount") int amount,
                         Model model) {
-    model.addAttribute("itemName", itemName);
-    model.addAttribute("sizeNum", sizeNum);
-    model.addAttribute("amount", amount);
-    model.addAttribute("quantity", repository.findByItemNameAndSize(itemName,sizeNum));
-    model.addAttribute("manufact", repository.findBySizeAndItemName(sizeNum,itemName));
-    model.addAttribute("category", repository.findDistinctFirstByItemName(itemName).get(0));
-    model.addAttribute("subTotal", amount * repository.findByItemNameAndSize(itemName,sizeNum));
-    return "summary";
+    List<Warehouse> warehouses = repository.findByItemNameAndSize(itemName, sizeNum);
+    if (warehouses.size() == 0) {
+      return "redirect:/warehouse";
+    } else {
+      model.addAttribute("itemName", itemName);
+      model.addAttribute("sizeNum", sizeNum);
+      model.addAttribute("amount", amount);
+      model.addAttribute("itemsList", warehouses);
+      Warehouse warehouse = warehouses.get(0);
+      model.addAttribute("subTotal", amount * warehouse.getUnitPrice());
+      return "summary";
+    }
   }
 
   @GetMapping(value = "/warehouse/query")
   public List<Warehouse> query(@PathVariable(value = "price") int price,
-                               @PathVariable(value = "type") String type){
+                               @PathVariable(value = "type") String type) {
     List<Warehouse> warehouseList = new ArrayList<>();
 
     return warehouseList;
