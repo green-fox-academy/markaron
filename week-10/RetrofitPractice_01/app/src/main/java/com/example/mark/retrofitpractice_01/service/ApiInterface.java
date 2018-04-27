@@ -10,6 +10,6 @@ import retrofit2.http.Path;
 
 public interface ApiInterface {
 
-  @GET("posts/{id}/comments")
-  Call<List<Contact>> getContacts(@Path("id") String id);
+  @GET("subject/{subject}.json")
+  Call<List<Contact>> getContacts(@Path("subject") String subject);
 }

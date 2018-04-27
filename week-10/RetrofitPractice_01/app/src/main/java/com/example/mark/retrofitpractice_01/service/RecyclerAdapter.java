@@ -8,15 +8,17 @@ import android.widget.TextView;
 
 import com.example.mark.retrofitpractice_01.R;
 import com.example.mark.retrofitpractice_01.model.Contact;
+import com.example.mark.retrofitpractice_01.model.Work;
 
 import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
 
   private List<Contact> contacts;
+  private List<Work> works;
 
-  public RecyclerAdapter (List<Contact> contacts){
-    this.contacts = contacts;
+  public RecyclerAdapter (List<Work> works){
+    this.works = works;
   }
 
 
@@ -28,6 +30,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
   @Override
   public void onBindViewHolder(MyViewHolder holder, int position) {
+    Work work = works.get(position);
+    String authorName
+
     holder.name.setText(contacts.get(position).getName());
     holder.email.setText(contacts.get(position).getEmail());
 
