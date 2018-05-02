@@ -1,24 +1,23 @@
 package com.example.mark.retrofitpractice_01.service;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.mark.retrofitpractice_01.MoreInfoActivity;
 import com.example.mark.retrofitpractice_01.R;
 import com.example.mark.retrofitpractice_01.model.Docs;
-import com.example.mark.retrofitpractice_01.model.Work;
 import com.example.mark.retrofitpractice_01.model.WorksByAuthor;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class AuthorAdapter extends RecyclerView.Adapter<AuthorAdapter.MyViewHolder> {
 
   private WorksByAuthor worksByAuthor;
-  //private List<Docs> docsList;
 
   public AuthorAdapter() {
     worksByAuthor = new WorksByAuthor();
@@ -36,27 +35,42 @@ public class AuthorAdapter extends RecyclerView.Adapter<AuthorAdapter.MyViewHold
   }
 
   @Override
-  public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+  public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
     Docs docs = worksByAuthor.getDocsList().get(position);
     holder.bookTitle.setText(docs.getTitle_suggest());
     holder.bookAuthor.setText(docs.getAuthor_name().get(0).toString());
 
+    holder.infoButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent intent = new Intent(v.getContext(), MoreInfoActivity.class);
+        Bundle extras = new Bundle();
+        extras.putString("infoOne", worksByAuthor.getDocsList().get(position).getSubject().get(0));
+        //extras.putInt("infoTwo", worksByAuthor.getDocsList().get(position).getFirst_publish_year());
+        extras.putString("infoThree", worksByAuthor.getDocsList().get(position).getLanguage().get(0));
+        //intent.putExtra("infoOne", worksByAuthor.getDocsList().get(position).getSubject().get(0));
+        intent.putExtras(extras);
+        v.getContext().startActivity(intent);
+      }
+    });
   }
 
   @Override
   public int getItemCount() {
-      return worksByAuthor.getDocsList().size();
+    return worksByAuthor.getDocsList().size();
   }
-
 
   public static class MyViewHolder extends RecyclerView.ViewHolder {
     TextView bookTitle;
     TextView bookAuthor;
+    Button infoButton;
 
     public MyViewHolder(View itemView) {
       super(itemView);
       bookTitle = itemView.findViewById(R.id.bookTitle);
       bookAuthor = itemView.findViewById(R.id.authorName);
+      infoButton = itemView.findViewById(R.id.buttonMoreInfo);
     }
+
   }
 }

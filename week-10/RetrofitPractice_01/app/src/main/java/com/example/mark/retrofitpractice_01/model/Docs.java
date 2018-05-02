@@ -6,6 +6,9 @@ public class Docs {
 
   private String title_suggest;
   private List<String> author_name;
+  private int first_publish_year;
+  private List<String> language;
+  private List<String> subject;
 
   public Docs() {
   }
@@ -28,5 +31,29 @@ public class Docs {
 
   public void setAuthor_name(List<String> author_name) {
     this.author_name = author_name;
+  }
+
+  public int getFirst_publish_year() {
+    return first_publish_year;
+  }
+
+  public void setFirst_publish_year(int first_publish_year) {
+    this.first_publish_year = first_publish_year;
+  }
+
+  public List<String> getLanguage() {
+    return language;
+  }
+
+  public void setLanguage(List<String> language) {
+    this.language = language;
+  }
+
+  public List<String> getSubject() {
+    return subject;
+  }
+
+  public void setSubject(List<String> subject) {
+    this.subject = subject;
   }
 }

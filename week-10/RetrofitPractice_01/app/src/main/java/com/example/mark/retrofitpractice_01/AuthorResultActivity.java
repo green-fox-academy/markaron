@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.example.mark.retrofitpractice_01.model.ApiClient;
 import com.example.mark.retrofitpractice_01.model.Docs;
@@ -40,8 +41,6 @@ public class AuthorResultActivity extends AppCompatActivity {
 
     Retrofit retrofit = builder.build();
 
-
-
     recyclerView = findViewById(R.id.recyclerViewAuthor);
     layoutManager = new LinearLayoutManager(this);
     recyclerView.setLayoutManager(layoutManager);
@@ -52,8 +51,8 @@ public class AuthorResultActivity extends AppCompatActivity {
     Intent intent = getIntent();
     String author = intent.getStringExtra("author");
 
-    Call<WorksByAuthor> call = apiInterface.getAuthor(author);
 
+    Call<WorksByAuthor> call = apiInterface.getAuthor(author);
     call.enqueue(new Callback<WorksByAuthor>() {
       @Override
       public void onResponse(Call<WorksByAuthor> call, Response<WorksByAuthor> response) {
