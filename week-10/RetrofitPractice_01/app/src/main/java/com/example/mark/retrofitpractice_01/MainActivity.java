@@ -22,5 +22,15 @@ public class MainActivity extends AppCompatActivity {
       intent.putExtra("subject", subject);
       startActivity(intent);
     }
+
+    public void searchAuthor(View view) {
+      Intent intent = new Intent(this, AuthorResultActivity.class);
+      EditText editText = (EditText) findViewById(R.id.editText);
+      String author = editText.getText().toString();
+
+      intent.putExtra("author", author);
+      startActivity(intent);
+    }
+
   }
 
