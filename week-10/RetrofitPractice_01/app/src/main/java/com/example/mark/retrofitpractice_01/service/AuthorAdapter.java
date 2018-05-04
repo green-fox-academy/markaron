@@ -45,10 +45,11 @@ public class AuthorAdapter extends RecyclerView.Adapter<AuthorAdapter.MyViewHold
       public void onClick(View v) {
         Intent intent = new Intent(v.getContext(), MoreInfoActivity.class);
         Bundle extras = new Bundle();
+
         extras.putString("infoOne", worksByAuthor.getDocsList().get(position).getSubject().get(0));
-        //extras.putInt("infoTwo", worksByAuthor.getDocsList().get(position).getFirst_publish_year());
+        extras.putInt("infoTwo", worksByAuthor.getDocsList().get(position).getFirst_publish_year());
         extras.putString("infoThree", worksByAuthor.getDocsList().get(position).getLanguage().get(0));
-        //intent.putExtra("infoOne", worksByAuthor.getDocsList().get(position).getSubject().get(0));
+
         intent.putExtras(extras);
         v.getContext().startActivity(intent);
       }
