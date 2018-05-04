@@ -35,15 +35,18 @@ public class MoreInfoActivity extends AppCompatActivity {
     EditText numberView = findViewById(R.id.numberInfo1);
     String playerGuess = numberView.getText().toString();
 
+    Intent intent = new Intent(this, GuessResultActivity.class);
+    Bundle bundle = new Bundle();
+
     if (year.equals(playerGuess)) {
-      Intent intent = new Intent(this, GuessResultActivity.class);
-      intent.putExtra("winText", "You WIN!!!");
+      bundle.putString("winText", "You WIN!!!");
+      bundle.putString("resultDiff", "Your guess was " + playerGuess + ", and the answer was: " +
+          year);
+      intent.putExtras(bundle);
       startActivity(intent);
     } else if (playerGuess.equals("")) {
       Toast.makeText(view.getContext(), "Please enter a number", Toast.LENGTH_SHORT).show();
     } else {
-      Intent intent = new Intent(this, GuessResultActivity.class);
-      Bundle bundle = new Bundle();
       bundle.putString("winText", "You Lose!!!");
       bundle.putString("resultDiff", "Your guess was " + playerGuess + ", and the answer was: " +
           year);

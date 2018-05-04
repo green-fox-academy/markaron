@@ -15,6 +15,8 @@ import com.example.mark.retrofitpractice_01.R;
 import com.example.mark.retrofitpractice_01.model.Docs;
 import com.example.mark.retrofitpractice_01.model.WorksByAuthor;
 
+import java.lang.reflect.Field;
+
 public class AuthorAdapter extends RecyclerView.Adapter<AuthorAdapter.MyViewHolder> {
 
   private WorksByAuthor worksByAuthor;
@@ -46,9 +48,30 @@ public class AuthorAdapter extends RecyclerView.Adapter<AuthorAdapter.MyViewHold
         Intent intent = new Intent(v.getContext(), MoreInfoActivity.class);
         Bundle extras = new Bundle();
 
-        extras.putString("infoOne", worksByAuthor.getDocsList().get(position).getSubject().get(0));
-        extras.putInt("infoTwo", worksByAuthor.getDocsList().get(position).getFirst_publish_year());
-        extras.putString("infoThree", worksByAuthor.getDocsList().get(position).getLanguage().get(0));
+        if(fieldCheck(worksByAuthor.getDocsList().get(position), "subject")){
+          if(worksByAuthor.getDocsList().get(position).getSubject().size() == 0){
+          } else {
+            extras.putString("infoOne", worksByAuthor.getDocsList().get(position).getSubject().get(0));
+          }
+        } else {
+          extras.putString("infoOne", "book has no subject");
+        }
+
+        if(fieldCheck(worksByAuthor.getDocsList().get(position),"language")){
+          if(worksByAuthor.getDocsList().get(position).getLanguage().size() == 0){
+            extras.putString("infoThree", "book has no language info");
+          } else {
+            extras.putString("infoThree", worksByAuthor.getDocsList().get(position).getLanguage().get(0));
+          }
+        } else {
+          extras.putString("infoThree", "book has no language info");
+        }
+
+        if(fieldCheck(worksByAuthor.getDocsList().get(position), "first_publish_year")){
+          extras.putInt("infoTwo", worksByAuthor.getDocsList().get(position).getFirst_publish_year());
+        } else {
+          extras.putInt("infoTwo", 0);
+        }
 
         intent.putExtras(extras);
         v.getContext().startActivity(intent);
@@ -72,6 +95,15 @@ public class AuthorAdapter extends RecyclerView.Adapter<AuthorAdapter.MyViewHold
       bookAuthor = itemView.findViewById(R.id.authorName);
       infoButton = itemView.findViewById(R.id.buttonMoreInfo);
     }
+  }
 
+  public boolean fieldCheck (Object object, String fieldName){
+    Class<?> objectClass = object.getClass();
+    for (Field field : objectClass.getFields()){
+      if(field.getName().equals(fieldName)){
+        return true;
+      }
+    }
+    return false;
   }
 }
