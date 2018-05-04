@@ -48,30 +48,21 @@ public class AuthorAdapter extends RecyclerView.Adapter<AuthorAdapter.MyViewHold
         Intent intent = new Intent(v.getContext(), MoreInfoActivity.class);
         Bundle extras = new Bundle();
 
-        if(fieldCheck(worksByAuthor.getDocsList().get(position), "subject")){
-          if(worksByAuthor.getDocsList().get(position).getSubject().size() == 0){
-          } else {
-            extras.putString("infoOne", worksByAuthor.getDocsList().get(position).getSubject().get(0));
-          }
-        } else {
+        if (worksByAuthor.getDocsList().get(position).getSubject().size() == 0) {
           extras.putString("infoOne", "book has no subject");
+        } else {
+          extras.putString("infoOne", worksByAuthor.getDocsList().get(position).getSubject().get(0));
         }
 
-        if(fieldCheck(worksByAuthor.getDocsList().get(position),"language")){
-          if(worksByAuthor.getDocsList().get(position).getLanguage().size() == 0){
-            extras.putString("infoThree", "book has no language info");
-          } else {
-            extras.putString("infoThree", worksByAuthor.getDocsList().get(position).getLanguage().get(0));
-          }
-        } else {
+
+        if (worksByAuthor.getDocsList().get(position).getLanguage().size() == 0) {
           extras.putString("infoThree", "book has no language info");
+        } else {
+          extras.putString("infoThree", worksByAuthor.getDocsList().get(position).getLanguage().get(0));
         }
 
-        if(fieldCheck(worksByAuthor.getDocsList().get(position), "first_publish_year")){
-          extras.putInt("infoTwo", worksByAuthor.getDocsList().get(position).getFirst_publish_year());
-        } else {
-          extras.putInt("infoTwo", 0);
-        }
+        extras.putInt("infoTwo", worksByAuthor.getDocsList().get(position).getFirst_publish_year());
+
 
         intent.putExtras(extras);
         v.getContext().startActivity(intent);
@@ -97,10 +88,10 @@ public class AuthorAdapter extends RecyclerView.Adapter<AuthorAdapter.MyViewHold
     }
   }
 
-  public boolean fieldCheck (Object object, String fieldName){
+  public boolean fieldCheck(Object object, String fieldName) {
     Class<?> objectClass = object.getClass();
-    for (Field field : objectClass.getFields()){
-      if(field.getName().equals(fieldName)){
+    for (Field field : objectClass.getFields()) {
+      if (field.getName().equals(fieldName)) {
         return true;
       }
     }
