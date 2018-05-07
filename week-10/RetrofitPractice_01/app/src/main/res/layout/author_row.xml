@@ -3,34 +3,37 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="80dp"
+    android:background="#2268ad"
     android:orientation="horizontal">
 
     <TextView
         android:id="@+id/bookTitle"
-        android:layout_width="150dp"
+        android:layout_width="135dp"
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
         android:gravity="center_vertical"
         android:text="Barmi"
+        android:textColor="#ffffff"
         android:textSize="18dp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/authorName"
-        android:layout_width="150dp"
+        android:layout_width="130dp"
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
         android:gravity="center_vertical"
         android:text="Barmi"
+        android:textColor="#ffffff"
         android:textSize="18dp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/buttonMoreInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Button" />
+        android:text="more info" />
 
 
 </LinearLayout>

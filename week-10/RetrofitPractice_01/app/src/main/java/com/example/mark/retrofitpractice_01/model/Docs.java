@@ -9,6 +9,7 @@ public class Docs {
   private int first_publish_year;
   private List<String> language;
   private List<String> subject;
+  private List<String> publish_place;
 
   public Docs() {
   }
@@ -55,5 +56,13 @@ public class Docs {
 
   public void setSubject(List<String> subject) {
     this.subject = subject;
+  }
+
+  public List<String> getPublish_place() {
+    return publish_place;
+  }
+
+  public void setPublish_place(List<String> publish_place) {
+    this.publish_place = publish_place;
   }
 }

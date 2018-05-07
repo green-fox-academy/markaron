@@ -48,21 +48,41 @@ public class AuthorAdapter extends RecyclerView.Adapter<AuthorAdapter.MyViewHold
         Intent intent = new Intent(v.getContext(), MoreInfoActivity.class);
         Bundle extras = new Bundle();
 
-        if (worksByAuthor.getDocsList().get(position).getSubject().size() == 0) {
+        if(fieldCheck(worksByAuthor.getDocsList().get(position),"subject")){
+          if (worksByAuthor.getDocsList().get(position).getSubject().size() == 0) {
+            extras.putString("infoOne", "book has no subject");
+          } else {
+            extras.putString("infoOne", worksByAuthor.getDocsList().get(position).getSubject().get(0));
+          }
+        } else {
           extras.putString("infoOne", "book has no subject");
-        } else {
-          extras.putString("infoOne", worksByAuthor.getDocsList().get(position).getSubject().get(0));
         }
 
-
-        if (worksByAuthor.getDocsList().get(position).getLanguage().size() == 0) {
+        if(fieldCheck(worksByAuthor.getDocsList().get(position),"language")){
+          if (worksByAuthor.getDocsList().get(position).getLanguage().size() == 0) {
+            extras.putString("infoThree", "book has no language info");
+          } else {
+            extras.putString("infoThree", worksByAuthor.getDocsList().get(position).getLanguage().get(0));
+          }
+        } else {
           extras.putString("infoThree", "book has no language info");
-        } else {
-          extras.putString("infoThree", worksByAuthor.getDocsList().get(position).getLanguage().get(0));
         }
 
-        extras.putInt("infoTwo", worksByAuthor.getDocsList().get(position).getFirst_publish_year());
+        if(fieldCheck(worksByAuthor.getDocsList().get(position),"publish_place")){
+          if(worksByAuthor.getDocsList().get(position).getPublish_place().size() == 0) {
+            extras.putString("infoTwo", "no data about publish place");
+          } else {
+            extras.putString("infoTwo", worksByAuthor.getDocsList().get(position).getPublish_place().get(0));
+          }
+        } else {
+          extras.putString("infoTwo", "no data about publish place");
+        }
 
+        if(fieldCheck(worksByAuthor.getDocsList().get(position),"first_publish_year")){
+          extras.putString("infoYear", "" + worksByAuthor.getDocsList().get(position).getFirst_publish_year());
+        } else {
+          extras.putString("infoYear", "no data about publish year");
+        }
 
         intent.putExtras(extras);
         v.getContext().startActivity(intent);

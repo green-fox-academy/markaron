@@ -21,17 +21,16 @@ public class MoreInfoActivity extends AppCompatActivity {
     Intent intent = getIntent();
     Bundle extras = intent.getExtras();
 
-    textViewOne.setText((String) extras.get("infoOne"));
-    String num = String.valueOf(extras.get("infoTwo"));
-    textViewTwo.setText(num);
-    textViewThree.setText((String) extras.get("infoThree"));
+    textViewOne.setText((String) "Subject: " + extras.get("infoOne"));
+    textViewTwo.setText(((String)"Publish place: " + extras.get("infoTwo")));
+    textViewThree.setText((String) "Language " + extras.get("infoThree"));
   }
 
   public void guessYear(View view) {
     Intent oldIntent = getIntent();
     Bundle extras = oldIntent.getExtras();
 
-    String year = String.valueOf(extras.get("infoTwo"));
+    String year = (String) extras.get("infoYear");
     EditText numberView = findViewById(R.id.numberInfo1);
     String playerGuess = numberView.getText().toString();
 
